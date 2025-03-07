@@ -1,51 +1,72 @@
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
 \label{ch:stand-van-zaken}
 
-% Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe
-% dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het
-% bijzonder aan wat de link is met het vorige en volgende hoofdstuk.
+\section{Introductie}
+Mendix vertegenwoordigt een van de toonaangevende low-code ontwikkelplatformen in het huidige softwareontwikkelingslandschap. Als implementatie van Model-Driven Development (MDD) principes stelt Mendix zowel professionele ontwikkelaars als zakelijke gebruikers in staat om applicaties te creëren via visuele modellering in plaats van traditionele codering. Het platform heeft aanzienlijke tractie gewonnen onder ondernemingen die hun digitale transformatie-initiatieven willen versnellen door ontwikkeltijd en technische complexiteit te verminderen.
+\\
+Hoewel Mendix via zijn modelgestuurde aanpak tal van voordelen biedt, waaronder verhoogde ontwikkelingssnelheid en bredere participatie van niet-technische belanghebbenden, presenteert het ook bepaalde beperkingen die de effectiviteit in verschillende contexten beïnvloeden. Deze thesis onderzoekt Mendix als een hedendaagse manifestatie van Model-Driven Development en analyseert kritisch de beperkingen ervan op het gebied van technische mogelijkheden, uitdagingen bij organisatorische adoptie en comparatieve nadelen ten opzichte van vergelijkbare platformen.
+\\
+Door zowel de theoretische onderbouwing van MDD als de praktische implementatie ervan in Mendix te begrijpen, beoogt dit onderzoek een uitgebreide beoordeling te geven van waar en hoe Mendix mogelijk tekortschiet in het aanpakken van complexe enterprise software behoeften, ondanks de innovatieve benadering van applicatieontwikkeling.
+\newpage
 
-% Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
+\section{\IfLanguageName{dutch}{Model-Driven Development}{Model-Driven Development}}%
+In dit hoofdstuk wordt de theoretische achtergrond van Model-Driven Development (MDD) en low-code ontwikkeling uiteengezet, met een specifieke focus op Mendix. Dit sluit aan bij de introductie van de stand van zaken, waarin het belang van MDD en low-code ontwikkeling werd geïntroduceerd. Dit hoofdstuk biedt een diepgaande analyse van MDD, inclusief de voordelen en beperkingen, en gaat na hoe Mendix binnen dit kader past.
 
-Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
+\subsection{\IfLanguageName{dutch}{Kernconcepten van Model-Driven Development}{Core Concepts of Model-Driven Development}}%
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz.\ naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin (narratieve referentie), gebruik je \texttt{$\backslash${}textcite\{\}}. Soms is de auteursnaam niet expliciet een onderdeel van de zin, dan gebruik je \texttt{$\backslash${}autocite\{\}} (referentie tussen haakjes). Dit gebruik je bv.~bij een citaat, of om in het bijschrift van een overgenomen afbeelding, broncode, tabel, enz. te verwijzen naar de bron. In de volgende paragraaf een voorbeeld van elk.
+Volgens het onderzoek \textcite{Hailpern2006} is MDD “een software engineering aanpak die bestaat uit de toepassing van modellen om het abstractieniveau te verhogen” in softwareontwikkeling. Deze aanpak ontstond als een natuurlijke evolutie in de overgang van low-level programmeertalen zoals assembly naar higher-level talen zoals Java en C\#, waarbij modellen de volgende stap in deze abstractie-evolutie vertegenwoordigen.
 
-\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
+Het fundamentele principe achter MDD is dat het werken op hogere abstractieniveaus ontwikkelaars in staat stelt om complexe systemen effectiever en met minder inspanning te beheren. Dit komt overeen met de historische evolutie van programmeertalen, waarbij elke nieuwe generatie de abstractie vergrootte om de productiviteit te verbeteren en de cognitieve belasting van ontwikkelaars te verminderen.
 
-Let er ook op: het \texttt{cite}-commando voor de punt, dus binnen de zin. Je verwijst meteen naar een bron in de eerste zin die erop gebaseerd is, dus niet pas op het einde van een paragraaf.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{grail.jpg}
-  \caption[Voorbeeld figuur.]{\label{fig:grail}Voorbeeld van invoegen van een figuur. Zorg altijd voor een uitgebreid bijschrift dat de figuur volledig beschrijft zonder in de tekst te moeten gaan zoeken. Vergeet ook je bronvermelding niet!}
-\end{figure}
+\subsection{\IfLanguageName{dutch}{Historische context en evolutie}{Historical Context and Evolution}}%
+De wortels van MDD gaan meer dan 20 jaar terug en hebben zich in verschillende belangrijke fasen ontwikkeld. In de jaren 80 kwamen de eerste ambitieuze modelleermethodologieën op om vereisten voor informatiesystemen vast te leggen. Dit werd gevolgd door het tijdperk van de Computer-Aided Software Engineering (CASE) tools in de jaren 1990, die probeerden om informatiesystemen gedeeltelijk te genereren vanuit modellen, hoewel veel CASE's alleen codesjablonen konden genereren die handmatig moesten worden ingevuld. Hedendaagse benaderingen zijn onder andere OMG's Model Driven Architecture (MDA) en uitvoerbare UML (xUML), die meer verfijnde implementaties van modelgedreven principes vertegenwoordigen.
 
-\begin{listing}
-  \begin{minted}{python}
-    import pandas as pd
-    import seaborn as sns
+Het MDD-landschap omvat verschillende benaderingen met onderscheidende kenmerken. OMG's Model Driven Architecture richt zich op meerdere abstractieniveaus van modellen en transformaties tussen deze niveaus. MDA maakt meestal gebruik van Computation Independent Models (CIMs) die business requirements representeren, Platform Independent Models (PIMs) die systeemfunctionaliteit specificeren zonder technische details, en Platform Specific Models (PSMs) die platformspecifieke implementatiedetails bevatten.
 
-    penguins = sns.load_dataset('penguins')
-    sns.relplot(data=penguins, x="flipper_length_mm", y="bill_length_mm", hue="species")
-  \end{minted}
-  \caption[Voorbeeld codefragment]{Voorbeeld van het invoegen van een codefragment.}
-\end{listing}
+Executable UML (xUML) daarentegen is gericht op het maken van volledig uitvoerbare modellen die 100\% van de benodigde code kunnen genereren, zodat handmatig coderen niet meer nodig is. Eerdere generaties MDD omvatten op formulieren gebaseerde CASE-tools zoals Oracle Forms en Microsoft Access Forms, die beperkte controle boden over het genereren van code, maar toegankelijke interfaces boden voor snelle applicatieontwikkeling. Moderne MDD-platforms zoals OptimalJ en Mendix vertegenwoordigen de hedendaagse aanpak en bieden verschillende niveaus van controle over modeltransformatie en codegeneratie.
 
-\lipsum[7-20]
+\subsection{\IfLanguageName{dutch}{Voordelen van Model-Driven Development}{Benefits of Model-Driven Development}}%
+De literatuur identificeert verschillende belangrijke voordelen van het gebruik van MDD-benaderingen. Door te werken met goed gedefinieerde modellen kunnen ontwikkelaars het aantal implementatiefouten verminderen, waardoor de softwarekwaliteit verbetert. Hogere abstractieniveaus stellen ontwikkelaars in staat om zich te richten op bedrijfslogica in plaats van technische implementatiedetails, wat de productiviteit van ontwikkelaars verhoogt. Modellen geven een duidelijker inzicht in de systeemstructuur en het gedrag, waardoor het ontwikkelproces beter onder controle is.
 
-\begin{table}
-  \centering
-  \begin{tabular}{lcr}
-    \toprule
-    \textbf{Kolom 1} & \textbf{Kolom 2} & \textbf{Kolom 3} \\
-    $\alpha$         & $\beta$          & $\gamma$         \\
-    \midrule
-    A                & 10.230           & a                \\
-    B                & 45.678           & b                \\
-    C                & 99.987           & c                \\
-    \bottomrule
-  \end{tabular}
-  \caption[Voorbeeld tabel]{\label{tab:example}Voorbeeld van een tabel.}
-\end{table}
+Bovendien vermindert het automatisch genereren van code de handmatige codeerinspanning en de bijbehorende fouten, wat leidt tot lagere ontwikkel- en onderhoudskosten. Snellere ontwikkelcycli helpen organisaties efficiënter om te gaan met hun applicatieontwikkelingsbehoeften, waardoor de ontwikkelingsachterstand afneemt. De mogelijkheid om snel iteraties uit te voeren en werkende functionaliteit te demonstreren verbetert de betrokkenheid van belanghebbenden, waardoor de klanttevredenheid toeneemt.
 
+\subsection{\IfLanguageName{dutch}{Belangrijkste functionaliteitsgebieden voor MDD-tools}{Benefits of Model-Driven Development}}%
+Om een MDD-tool effectief te laten zijn, moet het verschillende kritieke functionaliteiten ondersteunen, die kunnen worden gecategoriseerd in ondersteuning van zowel het modelleren als het ontwikkelproces.
+
+Effectieve ondersteuning bij het modelleren vereist dat tools de juiste abstractieniveaus hanteren, waarbij irrelevante details worden verborgen terwijl essentiële concepten worden blootgelegd. 
+
+Dit is vooral belangrijk omdat belanghebbenden modellen voor verschillende doeleinden gebruiken. Modellen moeten begrijpelijk zijn voor zowel technische als niet-technische belanghebbenden, idealiter met behulp van intuïtieve, voorspelbare notatie - veel tools maken om deze reden gebruik van UML, omdat dit wordt beschouwd als de de-facto standaard in de industrie \autocite{Marin2015} .Modellen moeten uitvoerbaar zijn, zelfs als ze incompleet zijn, zodat incrementele ontwikkeling mogelijk is en ontwikkelaars het gedrag van het systeem kunnen voorspellen door middel van experimenten of formele analyse. 
+
+Volwassen MDD-tools ondersteunen de verfijning van modellen en transformaties tussen verschillende abstractieniveaus, waardoor aanpasbare model-naar-model en model-naar-code transformaties mogelijk zijn. Volgens \textcite{Marin2015} “moeten MDD-tools de uitvoering van modellen mogelijk maken, ook al zijn ze onvolledig, maar wel geldig”, wat modelcorrectie en -validatie in een vroeg stadium vergemakkelijkt.
+
+Ondersteuning van het ontwikkelproces omvat een reeks functies. Tools moeten duidelijke feedback geven over fouten, idealiter door direct te wijzen naar de modelcomponenten die problemen veroorzaken, vergelijkbaar met hoe compilers problematische code markeren. 
+Omdat software meestal door teams wordt ontwikkeld, moeten MDD-tools modelvergelijking, samenvoeging en versiebeheer ondersteunen. 
+
+\textcite{Marin2015} benadrukken dat “versiebeheer van modellen absoluut noodzakelijk is om industriële samenwerkingsprojecten te beheren, waarbij verschillende leden van een ontwikkelteam aan hetzelfde model kunnen werken”.Effectieve tools moeten snel compileren en implementeren, met een bijzonder efficiënte afhandeling van incrementele wijzigingen.
+
+
+MDD-tools moeten integreren met bestaande systemen en ontwikkelomgevingen, waardoor verbindingen met ERP-systemen, legacy applicaties en andere bedrijfsinfrastructuur mogelijk worden. Een van de belangrijkste voordelen van MDD is dat een breder scala aan mensen kan deelnemen aan de ontwikkeling, waaronder bedrijfskundigen met beperkte programmeervaardigheden. Tools moeten de definitie en het gebruik van herbruikbare componenten, patronen en best practices in projecten vergemakkelijken. 
+
+Door deze functies op te nemen kunnen MDD-tools beter aansluiten op de behoeften van de industrie en de succesvolle toepassing van het MDD-paradigma in softwareontwikkelingsprojecten ondersteunen.
+
+\subsection{\IfLanguageName{dutch}{De evolutie naar low-code platformen}{The Evolution Toward Low-Code Platforms}}%
+Model-Driven Development (MDD) is de laatste jaren sterk geëvolueerd, vooral met de opkomst van low-code platformen zoals Mendix. Deze platforms vertegenwoordigen een verfijning van MDD-principes, waardoor ze toegankelijker worden voor ontwikkelaars met verschillende vaardigheidsniveaus, terwijl de kernvoordelen van modelgedreven benaderingen behouden blijven.
+
+Zoals \textcite{Henkel2010} aantoonden in hun analyse van Mendix, proberen moderne MDD-tools een balans te vinden tussen abstractie en controle, waardoor ontwikkelaars op bedrijfsniveau kunnen redeneren terwijl ze toch voldoende controle houden over het systeemgedrag. Deze evolutie heeft MDD-principes toegankelijk gemaakt voor een breder publiek, waardoor softwareontwikkeling democratischer wordt dan alleen voor traditionele programmeerexperts. \textcite{Henkel2010} benadrukken dat “low-code platforms zoals Mendix met succes de kloof hebben overbrugd tussen abstractie op hoog niveau en technische implementatie, waardoor zowel zakelijke belanghebbenden als ontwikkelaars effectief kunnen samenwerken.”
+
+Concluderend kan gesteld worden dat Model-Driven Development een significante vooruitgang betekent in software engineering methodologie, door modellen te verheffen van secundaire documentatie tot primaire ontwikkelartefacten. Door het abstractieniveau te verhogen stelt MDD ontwikkelaars in staat om complexiteit effectiever te managen, waardoor de productiviteit kan toenemen, de kwaliteit kan verbeteren en softwareontwikkeling toegankelijker wordt voor een breder scala aan belanghebbenden.De integratie van MDD-principes in low-code platforms heeft het bereik verder vergroot, waardoor het een krachtig hulpmiddel is geworden voor moderne softwareontwikkeling.
+
+\section{\IfLanguageName{dutch}{Low-code platformen}{Low-code platforms}}%
+In de volgende paragrafen zullen we de belangrijkste kenmerken, sterke punten en beperkingen van verschillende toonaangevende low-code ontwikkelplatformen onderzoeken en vergelijken, waaronder OutSystems, Joget DX en Mendix. Elk platform biedt unieke mogelijkheden en komt tegemoet aan verschillende organisatorische behoeften en use cases. Door hun benaderingen van visuele ontwikkeling, schaalbaarheid, inzetmogelijkheden, maatwerk en integratiemogelijkheden te onderzoeken, willen we een duidelijk inzicht geven in hoe deze platforms zich tot elkaar verhouden. Uiteindelijk zal deze vergelijking duidelijk maken waarom Mendix de meest uitgebreide en veelzijdige oplossing is, met de beste balans tussen flexibiliteit, schaalbaarheid en geavanceerde functies voor bedrijven die hun digitale transformatie willen versnellen.
+\subsection{\IfLanguageName{dutch}{OutSystems}{OutSystems}}
+OutSystems is een robuust low-code platform dat bekend staat om zijn visuele ontwikkelomgeving en mogelijkheden op enterprise-niveau. Het blinkt uit in snelle applicatieontwikkeling en biedt zowel cloud-native als on-premises implementatieopties, die tegemoet komen aan uiteenlopende organisatorische behoeften \autocite{Sido2024}. OutSystems kan ook bogen op een levendig ecosysteem en community, samen met sterke beveiligingsfuncties en naleving van industriestandaarden. Het licentiemodel en de kostenbeperkingen kunnen echter onbetaalbaar zijn voor sommige organisaties, en de beperkte database-integratie en migratie-uitdagingen kunnen flexibiliteit in de weg staan \autocite{Sido2024}. Daarnaast kunnen de kwaliteit van de documentatie en de geïsoleerde ondersteuning van de community barrières opwerpen voor ontwikkelaars die het potentieel van het platform willen maximaliseren.
+\subsection{\IfLanguageName{dutch}{Joget DX}{Joget DX}}
+Joget DX daarentegen is een open-source platform dat de nadruk legt op eenvoud en snelle applicatieontwikkeling. Het is vooral sterk in de ontwikkeling van progressieve webapps (PWA's), gebruikerservaring (UX) en integratie met DevOps-praktijken \autocite{Sido2024}. Joget DX biedt ook uitbreidbaarheid via add-on builders en verbeterde workflowmogelijkheden, waardoor het een flexibele keuze is voor bedrijven die processen willen automatiseren. De beperkingen van het abonnementsmodel, de beperkte databasetoegang en de app-beperkingen kunnen de schaalbaarheid en aanpasbaarheid echter beperken \autocite{Sido2024}. Bovendien kunnen de leercurve en aanpassingscomplexiteit van het platform uitdagingen vormen voor gebruikers die overstappen van traditionele ontwikkelmethoden.
+\subsection{\IfLanguageName{dutch}{Mendix}{Mendix}}
+Mendix onderscheidt zich als het meest uitgebreide en veelzijdige low-code platform en biedt een breed scala aan functies voor zowel technische als niet-technische gebruikers. De modelgedreven ontwikkelaanpak, gecombineerd met microservices en containerisatie, zorgt voor schaalbaarheid, flexibiliteit en draagbaarheid. Mendix ondersteunt zowel cloud-native als on-premise infrastructuren en biedt daarmee flexibiliteit in de inzetmogelijkheden. Het volledige levenscyclusbeheer van het platform, de mogelijkheden voor kunstmatige intelligentie (AI) en machine learning (ML) en de functies voor procesautomatisering maken het een krachtig hulpmiddel voor ondernemingen \autocite{Sido2024}. Bovendien zorgen de openheid en uitbreidbaarheid van Mendix voor een naadloze integratie met externe systemen en aanpassingen om aan specifieke bedrijfsbehoeften te voldoen. Hoewel Mendix een aantal beperkingen heeft, zoals beperkte aanpasbaarheid van thema's en potentiële vendor lock-in, wegen de algehele mogelijkheden en het gebruiksgemak op tegen deze nadelen \autocite{Sido2024}.
+\subsection{\IfLanguageName{dutch}{Keuze voor Mendix als low-code platform}{Choosing Mendix as low-code platform}}
+Hoewel OutSystems en Joget DX waardevolle functies en mogelijkheden bieden, komt Mendix naar voren als het beste platform vanwege zijn uitgebreide en flexibele benadering van low-code ontwikkeling. Het vermogen om complexe bedrijfsapplicaties te ondersteunen, gecombineerd met de schaalbaarheid, uitbreidbaarheid en sterke focus op gebruikerservaring, maakt het de ideale keuze voor organisaties die op efficiënte en effectieve wijze digitale transformatie willen stimuleren.
+
+\section{Mendix vs High-code}
+\section{Mendix die te kort komt en high-code die aanvult}

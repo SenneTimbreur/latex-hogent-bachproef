@@ -5,13 +5,15 @@
 
 \documentclass[dutch,dit,thesis]{hogentreport}
 
-% TODO:
 % - If necessary, replace the option `dit`' with your own department!
 %   Valid entries are dbo, dbt, dgz, dit, dlo, dog, dsa, soa
 % - If you write your thesis in English (remark: only possible after getting
 %   explicit approval!), remove the option "dutch," or replace with "english".
 
 \usepackage{lipsum} % For blind text, can be removed after adding actual content
+\usepackage{biblatex}
+%\usepackage{minted}
+
 
 %% Pictures to include in the text can be put in the graphics/ folder
 \graphicspath{{../graphics/}}
@@ -21,8 +23,9 @@
 %% \usepackage[chapter]{minted}
 %% If you compile with the make_thesis.{bat,sh} script, use the following
 %% import instead:
-\usepackage[chapter,outputdir=../output]{minted}
-\usemintedstyle{solarized-light}
+\usepackage{minted}  % No extra options needed
+\usemintedstyle{solarized-light}  % Load the preferred style
+
 
 %% Formatting for minted environments.
 \setminted{%
@@ -48,14 +51,14 @@
 % Other packages not already included can be imported here
 
 %%---------- Document metadata -------------------------------------------------
-% TODO: Replace this with your own information
-\author{Ernst Aarden}
-\supervisor{Dhr. F. Van Houte}
-\cosupervisor{Mevr. S. Beeckman}
+
+\author{Senne Timbreur}
+\supervisor{Mevr. F.Spriet}
+\cosupervisor{Mevr. J.Alexander}
 \title[Optionele ondertitel]%
-    {Titel van de bachelorproef}
+{Grenzen van de low-code tool Mendix}
 \academicyear{\advance\year by -1 \the\year--\advance\year by 1 \the\year}
-\examperiod{1}
+\examperiod{2}
 \degreesought{\IfLanguageName{dutch}{Professionele bachelor in de toegepaste informatica}{Bachelor of applied computer science}}
 \partialthesis{false} %% To display 'in partial fulfilment'
 %\institution{Internshipcompany BVBA.}
@@ -75,101 +78,110 @@
 
 %% Content starts here.
 \begin{document}
-
-%---------- Front matter -------------------------------------------------------
-
-\frontmatter
-
-\hypersetup{pageanchor=false} %% Disable page numbering references
-%% Render a Dutch outer title page if the main language is English
-\IfLanguageName{english}{%
-    %% If necessary, information can be changed here
-    \degreesought{Professionele Bachelor toegepaste informatica}%
-    \begin{otherlanguage}{dutch}%
-       \maketitle%
-    \end{otherlanguage}%
-}{}
-
-%% Generates title page content
-\maketitle
-\hypersetup{pageanchor=true}
-
-\input{voorwoord}
-\input{samenvatting}
-
-%---------- Inhoud, lijst figuren, ... -----------------------------------------
-
-\tableofcontents
-
-% In a list of figures, the complete caption will be included. To prevent this,
-% ALWAYS add a short description in the caption!
-%
-%  \caption[short description]{elaborate description}
-%
-% If you do, only the short description will be used in the list of figures
-
-\listoffigures
-
-% If you included tables and/or source code listings, uncomment the appropriate
-% lines.
-\listoftables
-
-\listoflistings
-
-% Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
-% hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
-% https://www.overleaf.com/learn/latex/Glossaries
-
-%---------- Kern ---------------------------------------------------------------
-
-\mainmatter{}
-
-% De eerste hoofdstukken van een bachelorproef zijn meestal een inleiding op
-% het onderwerp, literatuurstudie en verantwoording methodologie.
-% Aarzel niet om een meer beschrijvende titel aan deze hoofdstukken te geven of
-% om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
-% te verspreiden!
-
-\input{inleiding}
-\input{standvanzaken}
-\input{methodologie}
-
-% Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
-% vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.
-% elke fase in je onderzoek in een apart hoofdstuk bespreken.
-
-%\input{...}
-%\input{...}
-%...
-
-\input{conclusie}
-
-%---------- Bijlagen -----------------------------------------------------------
-
-\appendix
-
-\chapter{Onderzoeksvoorstel}
-
-Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
-
-%% TODO: 
-%\section*{Samenvatting}
-
-% Kopieer en plak hier de samenvatting (abstract) van je onderzoeksvoorstel.
-
-% Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
-\input{../voorstel/voorstel-inhoud}
-
-%%---------- Andere bijlagen --------------------------------------------------
-% TODO: Voeg hier eventuele andere bijlagen toe. Bv. als je deze BP voor de
-% tweede keer indient, een overzicht van de verbeteringen t.o.v. het origineel.
-%\input{...}
-
-%%---------- Backmatter, referentielijst ---------------------------------------
-
-\backmatter{}
-
-\setlength\bibitemsep{2pt} %% Add Some space between the bibliograpy entries
-\printbibliography[heading=bibintoc]
-
+    
+    %---------- Front matter -------------------------------------------------------
+    
+    \frontmatter
+    
+    \hypersetup{pageanchor=false} %% Disable page numbering references
+    %% Render a Dutch outer title page if the main language is English
+    \IfLanguageName{english}{%
+        %% If necessary, information can be changed here
+        \degreesought{Professionele Bachelor toegepaste informatica}%
+        \begin{otherlanguage}{dutch}%
+            \maketitle%
+        \end{otherlanguage}%
+    }{}
+    
+    %% Generates title page content
+    \maketitle
+    \hypersetup{pageanchor=true}
+    
+    \input{voorwoord}
+    \input{samenvatting}
+    
+    %---------- Inhoud, lijst figuren, ... -----------------------------------------
+    
+    \tableofcontents
+    
+    % In a list of figures, the complete caption will be included. To prevent this,
+    % ALWAYS add a short description in the caption!
+    %
+    %  \caption[short description]{elaborate description}
+    %
+    % If you do, only the short description will be used in the list of figures
+    
+    \listoffigures
+    
+    % If you included tables and/or source code listings, uncomment the appropriate
+    % lines.
+    \listoftables
+    
+    \listoflistings
+    
+    % Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
+    % hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
+    % https://www.overleaf.com/learn/latex/Glossaries
+    
+    %---------- Kern ---------------------------------------------------------------
+    
+    \mainmatter{}
+    
+    % De eerste hoofdstukken van een bachelorproef zijn meestal een inleiding op
+    % het onderwerp, literatuurstudie en verantwoording methodologie.
+    % Aarzel niet om een meer beschrijvende titel aan deze hoofdstukken te geven of
+    % om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
+    % te verspreiden!
+    
+    \input{inleiding}
+    \input{standvanzaken}
+    \input{methodologie}
+    
+    % Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
+    % vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.
+    % elke fase in je onderzoek in een apart hoofdstuk bespreken.
+    
+    %\input{...}
+    %\input{...}
+    %...
+    
+    \input{conclusie}
+    
+    %---------- Bijlagen -----------------------------------------------------------
+    
+    \appendix
+    
+    \chapter{Onderzoeksvoorstel}
+    
+    Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
+    
+    
+    \section*{Samenvatting}
+    
+    % Kopieer en plak hier de samenvatting (abstract) van je onderzoeksvoorstel.
+    In het digitale landschap van vandaag zoeken bedrijven steeds naar manieren om zakelijke applicaties efficiënter te ontwikkelen. Low-code ontwikkelplatformen, zoals Mendix, zijn de laatste jaren sterk gegroeid als een vervanging voor traditionele high-code ontwikkeling. Deze platformen beloven snellere ontwikkelingstijden en toegankelijkheid door visuele interfaces en herbruikbare componenten. Er is echter nog onduidelijkheid over wat de grenzen van de low-code-tool Mendix zijn bij het ontwikkelen van zakelijke applicaties, en wanneer high-code-ontwikkeling meer geschikt is.
+    \\
+    Dit onderzoek duikt diep in de technische mogelijkheden en beperkingen van Mendix om deze centrale vraag te beantwoorden. Door de complexiteit van deze vraag te ontrafelen, zal de studie een genuanceerd beeld schetsen van de huidige stand van low-code technologie.
+    \\
+    Een gemengde onderzoeksmethodologie zal worden gehanteerd, bestaande uit een diepgaande literatuurstudie, praktische experimenten en interviews met ervaren ontwikkelaars. Deze veelzijdige onderzoeksaanpak stelt ons in staat om de technische grenzen van Mendix grondig te analyseren, de prestaties in verschillende scenario's te evalueren en concrete richtlijnen te formuleren voor organisaties die overwegen low-code te implementeren.
+    \\
+    Het onderzoek zal een gedetailleerde analyse geven van de technische beperkingen van Mendix en use cases identificeren waarin de ontwikkeling van high-code meer geschikt is. Het zal ook een beslissingskader bieden, zodat bedrijven en andere instellingen kunnen kiezen tussen low-code en high-code methoden. Uiteindelijk zal het richtlijnen bevatten voor het optimaal combineren van de twee methoden om de beste resultaten te behalen.
+    \\
+    Gezien de groeiende adoptie van low-code platforms is er dringend behoefte aan objectief onderzoek naar hun mogelijkheden en beperkingen. Deze bachelorproef helpt om deze behoefte aan kennis te vervullen en biedt handige adviezen voor organisaties die overwegen om low-code of traditionele ontwikkelmethoden toe te passen.
+    
+    % Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
+    \input{../voorstel/voorstel-inhoud}
+    
+    %%---------- Andere bijlagen --------------------------------------------------
+    % TODO: Voeg hier eventuele andere bijlagen toe. Bv. als je deze BP voor de
+    % tweede keer indient, een overzicht van de verbeteringen t.o.v. het origineel.
+    %\input{...}
+    
+    %%---------- Backmatter, referentielijst ---------------------------------------
+    
+    \backmatter{}
+    
+    \setlength\bibitemsep{2pt} %% Add Some space between the bibliograpy entries
+    \printbibliography[heading=bibintoc]
+    
 \end{document}
