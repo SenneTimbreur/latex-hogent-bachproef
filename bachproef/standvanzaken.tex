@@ -1,7 +1,6 @@
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
 \label{ch:stand-van-zaken}
 
-\section{Introductie}
 Mendix vertegenwoordigt een van de toonaangevende low-code ontwikkelplatformen in het huidige softwareontwikkelingslandschap \autocite{Hermans2023}. Als implementatie van Model-Driven Development (MDD) principes stelt Mendix zowel professionele ontwikkelaars als zakelijke gebruikers in staat om applicaties te creëren via visuele modellering in plaats van traditionele codering. Het platform heeft aanzienlijke tractie gewonnen onder ondernemingen die hun digitale transformatie-initiatieven willen versnellen door ontwikkeltijd en technische complexiteit te verminderen \autocite{Oosten2020}.
 \\
 Hoewel Mendix via zijn modelgestuurde aanpak tal van voordelen biedt, waaronder verhoogde ontwikkelingssnelheid en bredere participatie van niet-technische belanghebbenden, presenteert het ook bepaalde beperkingen die de effectiviteit in verschillende contexten beïnvloeden \autocite{Yerukala2022}. Deze bachelorproef onderzoekt Mendix als een hedendaagse manifestatie van Model-Driven Development en analyseert kritisch de beperkingen ervan op het gebied van technische mogelijkheden, uitdagingen bij organisatorische adoptie en comparatieve nadelen ten opzichte van vergelijkbare platformen.
@@ -21,12 +20,12 @@ Het fundamentele principe achter MDD is dat het werken op hogere abstractienivea
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Evolution_Of_Programming.jpg}
-    \caption[Evolution]{\label{fig:evolution} Evolutie van programmeertalen naar steeds hogere abstractieniveau \autocite{Sufi_2023}.}
+    \caption[Evolution of programming]{\label{fig:evolution} Evolutie van programmeertalen naar steeds hogere abstractieniveau \autocite{Sufi_2023}.}
 \end{figure}
 
 
 \subsection{\IfLanguageName{dutch}{Historische context en evolutie}{Historical Context and Evolution}}%
-Model Driven Development heeft een rijke geschiedenis die meer dan 20 jaar teruggaat \autocite{Henkel2010}. De evolutie verliep in verschillende fasen:
+Model Driven Development heeft een rijke geschiedenis die meer dan 40 jaar teruggaat \autocite{Henkel2010}. De evolutie verliep in verschillende fasen:
 
 In de jaren '80 ontstonden de eerste geavanceerde modelleringsmethoden om de vereisten van informatiesystemen vast te leggen. Dit vormde de conceptuele basis voor MDD \autocite{Henkel2010}.
 
@@ -64,7 +63,7 @@ MDD-tools moeten integreren met bestaande systemen en ontwikkelomgevingen, waard
 Door deze functies op te nemen kunnen MDD-tools beter aansluiten op de behoeften van de industrie en de succesvolle toepassing van het MDD-paradigma in softwareontwikkelingsprojecten ondersteunen.
 
 \subsection{\IfLanguageName{dutch}{De evolutie naar low-code platformen}{The Evolution Toward Low-Code Platforms}}%
-Model-Driven Development (MDD) is de laatste jaren sterk geëvolueerd, vooral met de opkomst van low-code platformen zoals Mendix. Deze platforms vertegenwoordigen een verfijning van MDD-principes, waardoor ze toegankelijker worden voor ontwikkelaars met verschillende vaardigheidsniveaus, terwijl de kernvoordelen van modelgedreven benaderingen behouden blijven.
+Model-Driven Development (MDD) is de laatste jaren sterk geëvolueerd, vooral met de opkomst van low-code platformen zoals Mendix. Deze platformen vertegenwoordigen een verfijning van MDD-principes, waardoor ze toegankelijker worden voor ontwikkelaars met verschillende vaardigheidsniveaus, terwijl de kernvoordelen van modelgedreven benaderingen behouden blijven.
 
 Zoals \textcite{Henkel2010} aantoonden in hun analyse van Mendix, proberen moderne MDD-tools een balans te vinden tussen abstractie en controle, waardoor ontwikkelaars op bedrijfsniveau kunnen redeneren terwijl ze toch voldoende controle houden over het systeemgedrag. Deze evolutie heeft MDD-principes toegankelijk gemaakt voor een breder publiek, waardoor softwareontwikkeling democratischer wordt dan alleen voor traditionele programmeerexperts. \textcite{Henkel2010} benadrukken dat “low-code platforms zoals Mendix met succes de kloof hebben overbrugd tussen abstractie op hoog niveau en technische implementatie, waardoor zowel zakelijke belanghebbenden als ontwikkelaars effectief kunnen samenwerken.”
 
@@ -73,22 +72,58 @@ Concluderend kan gesteld worden dat Model-Driven Development een significante vo
 \section{\IfLanguageName{dutch}{Low-code platformen}{Low-code platforms}}%
 In de volgende paragrafen zullen we de belangrijkste kenmerken, sterke punten en beperkingen van verschillende toonaangevende low-code ontwikkelplatformen onderzoeken en vergelijken, waaronder OutSystems, Joget DX en Mendix. Elk platform biedt unieke mogelijkheden en komt tegemoet aan verschillende organisatorische behoeften en use cases. Door hun benaderingen van visuele ontwikkeling, schaalbaarheid, inzetmogelijkheden, maatwerk en integratiemogelijkheden te onderzoeken, willen we een duidelijk inzicht geven in hoe deze platforms zich tot elkaar verhouden. Uiteindelijk zal deze vergelijking duidelijk maken waarom Mendix de meest uitgebreide en veelzijdige oplossing is, met de beste balans tussen flexibiliteit, schaalbaarheid en geavanceerde functies voor bedrijven die hun digitale transformatie willen versnellen.
 \subsection{\IfLanguageName{dutch}{OutSystems}{OutSystems}}
-OutSystems is een robuust low-code platform dat bekend staat om zijn visuele ontwikkelomgeving en mogelijkheden op enterprise-niveau. 
+OutSystems is een robuust low-code platform dat bekend staat om zijn uitgebreide functies en enterprise-gerichte capaciteiten. Het platform onderscheidt zich door een intuïtieve visuele ontwikkelomgeving waarmee ontwikkelaars via drag-and-drop interfaces en voorgedefinieerde componenten snel applicaties kunnen bouwen. Deze gebruiksvriendelijke interface stelt zowel ervaren ontwikkelaars als gebruikers met minder technische kennis in staat om efficiënt te werken \autocite{Sido2024}. Op het gebied van schaalbaarheid biedt OutSystems sterke prestaties voor enterprise-toepassingen, waarbij de architectuur is ontworpen om mee te groeien met toenemende gebruikersaantallen en datavolumes. Het platform ondersteunt zowel cloud-native als on-premises implementatieopties, waardoor organisaties flexibel kunnen kiezen voor de deploymentstrategie die het beste past bij hun infrastructuur en compliance-vereisten. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{OutSystems.png}
-    \caption[Evolution]{\label{fig:outsystems} Visuele ontwikkelomgeving van OutSystems \autocite{FigueiraPutresza2021}.}
+    \caption[Visuele ontwikkelomgeving Outsystems]{\label{fig:outsystems} Visuele ontwikkelomgeving van OutSystems \autocite{FigueiraPutresza2021}.}
 \end{figure}
 
 
-Het blinkt uit in snelle applicatieontwikkeling en biedt zowel cloud-native als on-premises implementatieopties, die tegemoet komen aan uiteenlopende organisatorische behoeften \autocite{Sido2024}. OutSystems kan ook bogen op een levendig ecosysteem en community, samen met sterke beveiligingsfuncties en naleving van industriestandaarden. Het licentiemodel en de kostenbeperkingen kunnen echter onbetaalbaar zijn voor sommige organisaties, en de beperkte database-integratie en migratie-uitdagingen kunnen flexibiliteit in de weg staan \autocite{Sido2024}. Daarnaast kunnen de kwaliteit van de documentatie en de geïsoleerde ondersteuning van de community barrières opwerpen voor ontwikkelaars die het potentieel van het platform willen maximaliseren.
+Wat betreft maatwerk biedt OutSystems uitgebreide aanpassingsmogelijkheden via eigen extensies en de integratie van custom code wanneer de standaard visuele ontwikkelingstools niet toereikend zijn. Dit stelt ontwikkelaars in staat om complexe bedrijfslogica te implementeren, hoewel dit soms ten koste kan gaan van de ontwikkelsnelheid \autocite{Sido2024}. Voor integraties beschikt het platform over diverse mogelijkheden om te koppelen met externe systemen en API's, maar er zijn beperkingen bij de integratie met sommige databases en uitdagingen bij migraties, vooral bij complexe legacy-systemen. OutSystems kan verder bogen op een levendig ecosysteem en community, samen met sterke beveiligingsfuncties en naleving van industriestandaarden. Het licentiemodel en de kostenbeperkingen kunnen echter onbetaalbaar zijn voor sommige organisaties, terwijl de kwaliteit van de documentatie en de geïsoleerde ondersteuning van de community barrières kunnen opwerpen voor ontwikkelaars die het volledige potentieel van het platform willen benutten \autocite{Sido2024}.
+
+
 \subsection{\IfLanguageName{dutch}{Joget DX}{Joget DX}}
-Joget DX daarentegen is een open-source platform dat de nadruk legt op eenvoud en snelle applicatieontwikkeling. Het is vooral sterk in de ontwikkeling van progressieve webapps (PWA's), gebruikerservaring (UX) en integratie met DevOps-praktijken \autocite{Sido2024}. Joget DX biedt ook uitbreidbaarheid via add-on builders en verbeterde workflowmogelijkheden, waardoor het een flexibele keuze is voor bedrijven die processen willen automatiseren. De beperkingen van het abonnementsmodel, de beperkte databasetoegang en de app-beperkingen kunnen de schaalbaarheid en aanpasbaarheid echter beperken \autocite{Sido2024}. Bovendien kunnen de leercurve en aanpassingscomplexiteit van het platform uitdagingen vormen voor gebruikers die overstappen van traditionele ontwikkelmethoden.
+Joget DX is een open-source low-code platform dat zich onderscheidt door zijn toegankelijkheid en focus op snelle applicatieontwikkeling. Op het gebied van visuele ontwikkeling biedt het platform een intuïtieve interface die ontworpen is voor eenvoud, waardoor ook niet-technische gebruikers snel aan de slag kunnen met het bouwen van applicaties. Het is vooral sterk in de ontwikkeling van progressieve webapps (PWA's) en legt veel nadruk op gebruikerservaring (UX), waardoor eindgebruikers kunnen profiteren van moderne, responsieve interfaces \autocite{Sido2024}. Qua schaalbaarheid kent Joget DX enkele beperkingen door het abonnementsmodel en app-beperkingen, wat uitdagingen kan opleveren voor grootschalige enterprise-toepassingen die hoge prestatie-eisen stellen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{JogetDx.png}
+    \caption[Visuele ontwikkelomgeving Joget DX]{\label{fig:jogetDx} Visuele ontwikkelomgeving van Joget DX \autocite{Hugo2024}.}
+\end{figure}
+
+Voor inzetmogelijkheden biedt het platform goede integratie met DevOps-praktijken, waardoor het goed past binnen moderne ontwikkelworkflows en continuous delivery-processen. Het open-source karakter geeft organisaties flexibiliteit in de implementatie, hoewel de beperkte databasetoegang sommige deployment-scenario's kan bemoeilijken. Op het gebied van maatwerk beschikt Joget DX over uitbreidbaarheid via add-on builders en verbeterde workflowmogelijkheden, waardoor het een flexibele keuze is voor bedrijven die specifieke bedrijfsprocessen willen automatiseren en aanpassen aan hun behoeften \autocite{Sido2024}. De integratiemogelijkheden zijn redelijk robuust voor standaard use-cases, maar kunnen beperkingen vertonen bij complexere scenario's of legacy-systemen, wat de algehele aanpasbaarheid kan verminderen. Bovendien kunnen de leercurve en aanpassingscomplexiteit van het platform uitdagingen vormen voor gebruikers die overstappen van traditionele ontwikkelmethoden, wat extra training en gewenningstijd kan vereisen.
 \subsection{\IfLanguageName{dutch}{Mendix}{Mendix}}
 Mendix onderscheidt zich als het meest uitgebreide en veelzijdige low-code platform en biedt een breed scala aan functies voor zowel technische als niet-technische gebruikers. De modelgedreven ontwikkelaanpak, gecombineerd met microservices en containerisatie, zorgt voor schaalbaarheid, flexibiliteit en draagbaarheid. Mendix ondersteunt zowel cloud-native als on-premise infrastructuren en biedt daarmee flexibiliteit in de inzetmogelijkheden. Het volledige levenscyclusbeheer van het platform, de mogelijkheden voor kunstmatige intelligentie (AI) en machine learning (ML) en de functies voor procesautomatisering maken het een krachtig hulpmiddel voor ondernemingen \autocite{Sido2024}. Bovendien zorgen de openheid en uitbreidbaarheid van Mendix voor een naadloze integratie met externe systemen en aanpassingen om aan specifieke bedrijfsbehoeften te voldoen. Hoewel Mendix een aantal beperkingen heeft, zoals beperkte aanpasbaarheid van thema's en potentiële vendor lock-in, wegen de algehele mogelijkheden en het gebruiksgemak op tegen deze nadelen \autocite{Sido2024}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Mendix.png}
+    \caption[Visuele ontwikkelomgeving Mendix]{\label{fig:Mendix} Visuele ontwikkelomgeving van Mendix \autocite{Mendix2025}.}
+\end{figure}
+
+
 \subsection{\IfLanguageName{dutch}{Keuze voor Mendix als low-code platform}{Choosing Mendix as low-code platform}}
-Hoewel OutSystems en Joget DX waardevolle functies en mogelijkheden bieden, komt Mendix naar voren als het beste platform vanwege zijn uitgebreide en flexibele benadering van low-code ontwikkeling. Het vermogen om complexe bedrijfsapplicaties te ondersteunen, gecombineerd met de schaalbaarheid, uitbreidbaarheid en sterke focus op gebruikerservaring, maakt het de ideale keuze voor organisaties die op efficiënte en effectieve wijze digitale transformatie willen stimuleren.
+Hoewel OutSystems en Joget DX waardevolle functies en mogelijkheden bieden, komt Mendix naar voren als het beste platform vanwege zijn uitgebreide en flexibele benadering van low-code ontwikkeling. Zoals de vergelijkingstabel laat zien, blinkt Mendix uit op alle belangrijke criteria: visuele ontwikkeling, schaalbaarheid, inzetmogelijkheden, maatwerk en integratiemogelijkheden.
+Het vermogen van Mendix om complexe bedrijfsapplicaties te ondersteunen met zijn geavanceerde visuele interface is superieur aan de concurrentie. De uitstekende schaalbaarheid voor enterprise-toepassingen overtreft de beperkingen die bij Joget DX worden ervaren. Daarnaast biedt Mendix meer veelzijdige deployment-opties dan beide concurrenten, terwijl de uitgebreide aanpassingsmogelijkheden en krachtige Microflow-editor meer flexibiliteit bieden dan de alternatieven.
+Waar OutSystems worstelt met databaseintegratie en Joget DX beperkt wordt in complexere integratiescenario's, biedt Mendix uitstekende API-integratie met uitgebreide connectors voor externe systemen. Deze combinatie van sterke punten maakt Mendix de ideale keuze voor organisaties die op efficiënte en effectieve wijze digitale transformatie willen stimuleren, ongeacht de complexiteit van hun bedrijfsprocessen of technische vereisten.
+
+\begin{table}
+    \centering
+    \begin{tabular}{ |p{5cm}|p{3cm}|p{3cm}|p{3cm}|   }
+        \hline
+        Criteria & \textbf{Mendix} & \textbf{OutSystems} & \textbf{Joget DX} \\
+        \hline
+        \textbf{Visuele ontwikkeling} & Zeer gebruiksvriendelijk; geschikt voor alle niveau's & Intuïtieve drag-and-drop interface & Eenvoudige interface gericht op PWA's\\
+        \textbf{Schaalbaarheid} & Uitstekend voor enterprise; hoge belasting   & Sterk; ontworpen voor groei & Beperkt door abonnementsmodel \\
+        \textbf{Inzetmogelijkheden} & Veelzijdig (cloud/on-premises/hybrid); CI/CD-integratie & Cloud en on-premises opties & DevOps-integratie; beperkte database-opties \\
+        \textbf{Maatwerk}    & Uitgebreid; Java-extensies; krachtige Microflow & Extensies en custom code mogelijk & Add-on builders; goede workflows \\
+        \textbf{Integratiemogelijkheden} & Uitstekende API's; veel connectors; legacy-ondersteuning & Diverse opties; enkele database-beperkingen & Adequaat voor standaard gebruik; beperkingen bij complexiteit \\
+        \hline
+    \end{tabular}
+    \caption[Voorbeeld tabel]{\label{tab:Vergelijking Low-code platformen}Vergelijking Low-code platformen.}
+\end{table}
 
 \section{Mendix en high-code}
 \subsection{Verschillende benaderingen}
@@ -104,5 +139,5 @@ Een belangrijke conclusie uit \textcite{Krouwel_2022} is dat low-code technologi
 Volgens \textcite{Krouwel_2022} kunnen low-code en high-code elkaar versterken door de flexibiliteit van model-based engineering (MBE) te combineren met de aanpasbaarheid van traditionele codering. Low-code platforms zoals Mendix maken gebruik van abstracties en modelgestuurde technieken, waardoor applicaties sneller kunnen worden ontwikkeld zonder dat complexe code nodig is. Tegelijkertijd biedt high-code de mogelijkheid om de gegenereerde applicaties verder te verfijnen, bijvoorbeeld door aangepaste logica, integraties of prestatie-optimalisaties toe te voegen. In het onderzoek wordt benadrukt dat low-code vooral geschikt is om snel te reageren op veranderingen in bedrijfsprocessen, terwijl high-code nodig blijft voor diepgaande aanpassingen en geavanceerde automatiseringen. Door beide methoden te combineren, ontstaat een hybride aanpak waarbij organisaties profiteren van de snelheid en wendbaarheid van low-code zonder in te boeten op de kracht en maatwerkopties van high-code.
 
 \section{Keuze tussen high-code en low-code?}
-Bij het kiezen tussen high-code, low-code en no-code ontwikkelmethoden is het essentieel om vooraf duidelijk te bepalen welke functionaliteiten en mate van maatwerk je voor je applicatie nodig hebt \autocite{Ballejos2024}. High-code ontwikkeling biedt maximale flexibiliteit en is geschikt voor complexe, op maat gemaakte oplossingen, maar vereist aanzienlijke tijd en technische expertise. Low-code platforms versnellen het ontwikkelproces door gebruik te maken van visuele tools en vooraf gebouwde componenten, wat ideaal is voor applicaties die snel moeten worden ontwikkeld met een zekere mate van aanpasbaarheid \autocite{Ballejos2024}. No-code oplossingen stellen zelfs niet-technische gebruikers in staat om eenvoudige applicaties te creëren zonder enige programmeerkennis, wat handig is voor basisbehoeften maar beperkingen kent in complexiteit en maatwerk. Door vooraf je specifieke eisen en doelen te definiëren, kun je de ontwikkelmethode kiezen die het beste aansluit bij de behoeften van je project en organisatie.
+Bij het kiezen tussen high-code en low-code ontwikkelmethoden is het essentieel om vooraf duidelijk te bepalen welke functionaliteiten en mate van maatwerk je voor je applicatie nodig hebt \autocite{Ballejos2024}. High-code ontwikkeling biedt maximale flexibiliteit en is geschikt voor complexe, op maat gemaakte oplossingen, maar vereist aanzienlijke tijd en technische expertise. Low-code platforms versnellen het ontwikkelproces door gebruik te maken van visuele tools en vooraf gebouwde componenten, wat ideaal is voor applicaties die snel moeten worden ontwikkeld met een zekere mate van aanpasbaarheid \autocite{Ballejos2024}. No-code oplossingen stellen zelfs niet-technische gebruikers in staat om eenvoudige applicaties te creëren zonder enige programmeerkennis, wat handig is voor basisbehoeften maar beperkingen kent in complexiteit en maatwerk. Door vooraf je specifieke eisen en doelen te definiëren, kun je de ontwikkelmethode kiezen die het beste aansluit bij de behoeften van je project en organisatie.
 
