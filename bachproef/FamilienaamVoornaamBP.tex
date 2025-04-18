@@ -22,6 +22,7 @@
     description={Is a markup language specially suited 
         for scientific documents}
 }
+
 \newacronym{MDD}{MDD}{Model Driven Development}
 \newacronym{MDA}{MDA}{Model Driven Architecture}
 \newacronym{xUML}{xUML}{executable Unified Modeling Language}
@@ -34,6 +35,7 @@
 \newacronym{ML}{ML}{machine learning}
 \newacronym{MBE}{MBE}{Model-Based Engineering}
 \newacronym{DEMO}{DEMO}{Design and Engineering Methodology for Organizations}
+\newacronym{FOD MOB}{FOD MOB}{Federale Overheidsdienst Mobiliteit}
 
 %\usepackage{minted}
 
@@ -68,7 +70,7 @@
     \listof{listing}{\listoflistingscaption}%
 }
 
-\makeglossary
+
 
 % Other packages not already included can be imported here
 
@@ -139,9 +141,9 @@
     % lines.
     \listoftables
     
+
+    \printglossaries
     
-    
-    \printglossary[type=\acronymtype]
     
     % Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
     % hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
@@ -160,6 +162,7 @@
     \input{inleiding}
     \input{standvanzaken}
     \input{methodologie}
+    \input{resultaten}
     
     % Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
     % vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.
