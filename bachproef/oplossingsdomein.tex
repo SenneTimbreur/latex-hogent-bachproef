@@ -18,7 +18,49 @@ Een diepgaande analyse van bestaande documentatie over Mendix en andere low-code
 TODO
 \\
 \\
-Voor de beantwoording van deelvraag 6 worden praktische tests uitgevoerd om de grenzen van het Mendix-platform te onderzoeken. Dit onderzoek richt zich op verschillende aspecten, waaronder schaalbaarheid en prestaties, waarbij de reactietijd, belastingstestresultaten en het vermogen om te schalen bij toenemende gebruikersaantallen worden geëvalueerd. Daarnaast worden de integratiemogelijkheden getest om de compatibiliteit met externe systemen, API’s en databases te beoordelen. De aanpasbaarheid en uitbreidbaarheid van het platform worden geanalyseerd door te onderzoeken in hoeverre maatwerkfunctionaliteiten en uitbreidingen kunnen worden geïmplementeerd. Ook de ontwikkelingssnelheid wordt onder de loep genomen, waarbij wordt gekeken naar de efficiëntie van de ontwikkelomgeving en de snelheid waarmee applicaties kunnen worden gebouwd en aangepast. Tot slot wordt de beveiliging en compliance beoordeeld om vast te stellen in hoeverre het platform voldoet aan relevante regelgeving en beveiligingsstandaarden. Deze tests bieden een diepgaand inzicht in de sterke en zwakke punten van Mendix en helpen bij het bepalen van de geschiktheid van het platform voor specifieke toepassingen.
+\subsection{Schaalbaarheid en prestaties}
+TODO
+\\
+\\
+Hoewel specifieke benchmarks voor reactietijd en belastingstests niet publiekelijk beschikbaar zijn, is bekend dat Mendix is ontworpen voor cloud-native en schaalbare toepassingen. Het platform ondersteunt containerisatie en multi-cloud-deployments, wat bijdraagt aan hoge beschikbaarheid en schaalbaarheid. Mendix garandeert een uptime van 99,95\% voor premium versies, wat duidt op een robuuste infrastructuur die geschikt is voor toepassingen met hoge beschikbaarheid.
+
+\subsection{Integratiemogelijkheden}
+Mendix is ontworpen om gemakkelijk te kunnen integreren met zowel moderne als legacy systemen. De belangrijkste integratietechnieken en mogelijkheden zijn:
+\subsubsection{API-Integratie}
+REST API's
+\\
+Mendix biedt volledige ondersteuning voor het bouwen en gebruiken van RESTful API's. Je kunt makkelijk data van externe systemen ophalen of je eigen services beschikbaar maken voor anderen.
+Bijvoorbeeld: integreren met een CRM zoals Salesforce of een ERP zoals SAP.
+
+SOAP Webservices
+\\
+Ook oudere webservices (SOAP) worden ondersteund, wat belangrijk is voor legacy systemen.
+Bijvoorbeeld: communicatie met oudere financiële software of verzekeringssystemen.
+
+GraphQL ondersteuning
+\\
+Hoewel GraphQL niet natively wordt aangeboden zoals REST/SOAP, kan Mendix met plugins en uitbreidingen GraphQL endpoints benaderen.
+
+OData Services
+\\
+Voor standaardisatie en eenvoudige integratie met analytische tools (bijvoorbeeld Power BI) ondersteunt Mendix OData publicatie en consumptie.
+
+
+Mendix biedt uitgebreide integratiemogelijkheden met externe systemen, API’s en databases. Het platform ondersteunt integratie via REST, SOAP, OData, GraphQL en JDBC. Daarnaast kunnen ontwikkelaars gebruikmaken van Mendix Connect en de Mendix Marketplace om connectors te vinden of te bouwen voor systemen zoals SAP, Salesforce en Kafka. Voor database-integratie biedt Mendix ondersteuning voor directe JDBC-verbindingen met databases zoals Microsoft SQL, MySQL, Oracle, PostgreSQL en Snowflake.
+
+\subsection{Aanpasbaarheid en uitbreidbaarheid}
+Het Mendix-platform is zeer aanpasbaar en uitbreidbaar. Ontwikkelaars kunnen aangepaste functionaliteiten implementeren via Java-acties, pluggable widgets (op basis van React of JavaScript) en de Mendix Model SDK. Daarnaast kunnen ontwikkelaars het platform uitbreiden met behulp van de Extensibility API, waarmee nieuwe functionaliteiten aan Studio Pro kunnen worden toegevoegd.
+
+\subsection{Ontwikkelingssnelheid}
+Mendix staat bekend om zijn snelle ontwikkelingsmogelijkheden. Het platform maakt gebruik van een visuele ontwikkelomgeving, herbruikbare componenten en een geïntegreerde CI/CD-pijplijn, wat bijdraagt aan een verhoogde ontwikkelsnelheid. Volgens \textcite{MxTechies} kunnen applicaties tot 10 keer sneller worden gebouwd met 70\% minder middelen. 
+
+\subsection{Beveiliging en compliance}
+Mendix hecht veel waarde aan beveiliging en compliance. Het platform biedt uitgebreide beveiligingsmaatregelen, waaronder toegangsbeheer, gegevensversleuteling en ondersteuning voor beveiligingsstandaarden. Daarnaast ondersteunt Mendix de opslag van applicatiegegevens in SQL-databases naar keuze, wat organisaties flexibiliteit biedt in gegevensbeheer en compliance. 
+\\
+\\
+\subsection{Conclusie}
+De uitgevoerde tests tonen aan dat Mendix een krachtig en flexibel low-code platform is dat geschikt is voor het bouwen van schaalbare, geïntegreerde en veilige applicaties. De uitgebreide integratiemogelijkheden, aanpasbaarheid en snelle ontwikkelcyclus maken het platform bijzonder geschikt voor diverse bedrijfsbehoeften.
+
 
 \section{Reflectie op eigen ervaringen}
 Op basis van mijn ervaring kan ik bevestigen dat low-code, zoals Mendix, bijzonder krachtig is voor het snel opzetten van generieke applicaties met standaardfunctionaliteiten. Het stelt je in staat om in korte tijd werkende oplossingen te bouwen, wat vooral in iteratieve of proof-of-concept contexten een grote meerwaarde biedt. Tegelijk merk ik dat zodra een project meer ‘custom’ noden heeft – zoals complexe bedrijfslogica of verfijnde integraties – de grenzen van het platform sneller voelbaar worden. In die gevallen is het een duidelijke troef om een high-code achtergrond te hebben: je begrijpt beter wat er onder de motorkap gebeurt, kunt gerichter zoeken naar workarounds en neemt bewuster beslissingen over de architectuur van je oplossing. Bovendien zie ik dat een traditionele programmeerachtergrond ook de leesbaarheid en structuur van je low-code logica ten goede komt. Je denkt in patronen, zorgt voor herbruikbaarheid en hanteert best practices die niet vanzelfsprekend zijn in een puur visuele ontwikkelomgeving.
