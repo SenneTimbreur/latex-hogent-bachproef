@@ -8,10 +8,41 @@
 
 
 \section{Literatuuroverzicht}
-TODO
-\\
-\\
-Een diepgaande analyse van bestaande documentatie over Mendix en andere low-code platforms vormt een essentieel onderdeel voor het beantwoorden van deelvraag 5 en 7. Deze analyse omvat diverse bronnen, waaronder officiële Mendix productgidsen die gedetailleerde technische specificaties en functionaliteiten beschrijven, casestudies van derden en rapporten uit de industrie die praktijkvoorbeelden en onafhankelijke evaluaties bieden, online forums en ontwikkelaarsgemeenschappen waar praktijkervaringen en knelpunten worden gedeeld, en academische publicaties over low-code ontwikkeling die theoretische onderbouwing en wetenschappelijke inzichten verschaffen over de bredere context van deze technologie.
+
+In aanvulling op de eerder besproken stand van zaken biedt dit literatuuroverzicht een verdiepend inzicht in het gebruik van Mendix als low-code platform op basis van bestaande literatuur, praktijkcases en academisch onderzoek. Het platform, dat bekend staat om zijn visuele ontwikkelomgeving en ondersteuning voor zowel professionele als niet-technische gebruikers, wordt steeds vaker ingezet voor snelle en iteratieve applicatieontwikkeling \autocite{Alamin2021}. Daarnaast zijn er diverse praktijkvoorbeelden en academische analyses die de voordelen en beperkingen van low-code ontwikkeling, en Mendix in het bijzonder, verder belichten \autocite{Gadia2025}.
+\subsection{Praktijkvoorbeelden en Casestudies}
+Diverse organisaties hebben Mendix succesvol ingezet voor uiteenlopende toepassingen:
+\begin{itemize}
+    \item \textbf{Gemeente Rotterdam}
+    \\
+    Door het gebruik van Mendix heeft de gemeente meer dan 100 low-code applicaties ontwikkeld, waaronder een COVID-responsportaal en een parkeervergunning-app. Deze applicaties ondersteunen meer dan 100.000 gebruikers en zijn gemiddeld binnen 8-12 weken ontwikkeld \autocite{Mendix2025a}.
+    \item \textbf{PostNL}
+    \\
+    Het nationale postbedrijf van Nederland heeft zijn ordermanagementsysteem herbouwd met Mendix, gebruikmakend van een microservices-architectuur. Hierdoor kunnen ze meer dan 1 miljoen pakketten per dag verwerken en hebben ze een achterstand van twee jaar in zes maanden weggewerkt \autocite{Zaman2024}.
+    \item \textbf{AZL}
+    \\
+    Deze pensioenfondsbeheerder heeft met Mendix een klantportaal ontwikkeld dat het pensioenkeuzeproces voor deelnemers vereenvoudigt. Door de overstap naar een agile werkwijze in combinatie met low-code ontwikkeling, konden ze sneller inspelen op klantbehoeften en de gebruikerservaring verbeteren \autocite{MendixAZL}.
+\end{itemize}
+\subsection{Ervaringen en Knelpunten uit Ontwikkelaarsgemeenschappen}
+Onderzoek naar discussies op platforms zoals Stack Overflow en Reddit onthult dat ontwikkelaars verschillende uitdagingen ervaren bij het gebruik van low-code platforms:
+\begin{itemize}
+    \item \textbf{Aanpassingsmogelijkheden}
+    \\
+    Veel ontwikkelaars ondervinden moeilijkheden bij het aanpassen van gebruikersinterfaces en het implementeren van dynamische event-handling in low-code omgevingen. Een studie toonde aan dat meer dan 40\% van de vragen op Stack Overflow betrekking had op dergelijke aanpassingen, waarbij een significant deel onbeantwoord bleef \autocite{Alamin2021}.
+    \item \textbf{Integratie met externe systemen}
+    \\
+    Hoewel platforms als Mendix en OutSystems integratiemogelijkheden bieden, ervaren ontwikkelaars soms beperkingen bij het koppelen van specifieke externe systemen of bij het beheren van complexe dataflows \autocite{Gadia2025}.
+\end{itemize}
+\subsection{Academische Inzichten in Low-Code Ontwikkeling}
+Academisch onderzoek benadrukt zowel de voordelen als de uitdagingen van low-code ontwikkeling:
+\begin{itemize}
+    \item \textbf{Versnelling van ontwikkelprocessen}
+    \\
+    Low-code platforms stellen organisaties in staat om sneller applicaties te ontwikkelen, wat met name voordelig is in domeinen die behoefte hebben aan geautomatiseerde processen en workflows \autocite{Luo2021}.
+    \item \textbf{Beperkingen in complexiteit}
+    \\
+    Hoewel low-code geschikt is voor veel toepassingen, kunnen er beperkingen zijn bij het ontwikkelen van zeer complexe of gespecialiseerde applicaties, waarbij traditionele programmeertalen meer flexibiliteit bieden.
+\end{itemize}
 \section{Praktisch onderzoek}
 TODO
 \\
@@ -24,20 +55,22 @@ Hoewel specifieke benchmarks voor reactietijd en belastingstests niet publiekeli
 
 \subsection{Integratiemogelijkheden}
 Mendix is ontworpen om gemakkelijk te kunnen integreren met zowel moderne als legacy systemen. De belangrijkste integratietechnieken en mogelijkheden zijn:
-\subsubsection{REST API's}
-Mendix biedt volledige ondersteuning voor het bouwen en gebruiken van RESTful API's. Je kunt makkelijk data van externe systemen ophalen of je eigen services beschikbaar maken voor anderen.
-Bijvoorbeeld: integreren met een CRM zoals Salesforce of een ERP zoals SAP.
-\subsubsection{SOAP Webservices}
-Ook oudere webservices (SOAP) worden ondersteund, wat belangrijk is voor legacy systemen.
-Bijvoorbeeld: communicatie met oudere financiële software of verzekeringssystemen.
-
-\subsubsection{GraphQL ondersteuning}
-Hoewel GraphQL niet natively wordt aangeboden zoals REST/SOAP, kan Mendix met plugins en uitbreidingen GraphQL endpoints benaderen.
-
-\subsubsection{OData Services}
-Voor standaardisatie en eenvoudige integratie met analytische tools (bijvoorbeeld Power BI) ondersteunt Mendix OData publicatie en consumptie.
-\\
-\\
+\begin{itemize}
+    \item \textbf{REST API's}
+    \\
+    Mendix biedt volledige ondersteuning voor het bouwen en gebruiken van RESTful API's. Je kunt makkelijk data van externe systemen ophalen of je eigen services beschikbaar maken voor anderen.
+    Bijvoorbeeld: integreren met een CRM zoals Salesforce of een ERP zoals SAP.
+    \item \textbf{SOAP Webservices}
+    \\
+    Ook oudere webservices (SOAP) worden ondersteund, wat belangrijk is voor legacy systemen.
+    Bijvoorbeeld: communicatie met oudere financiële software of verzekeringssystemen.
+    \item \textbf{GraphQL ondersteuning}
+    \\
+    Hoewel GraphQL niet natively wordt aangeboden zoals REST/SOAP, kan Mendix met plugins en uitbreidingen GraphQL endpoints benaderen.
+    \item \textbf{OData Services}
+    \\
+    Voor standaardisatie en eenvoudige integratie met analytische tools (bijvoorbeeld Power BI) ondersteunt Mendix OData publicatie en consumptie.
+\end{itemize}
 Mendix biedt uitgebreide integratiemogelijkheden met externe systemen, API’s en databases. Het platform ondersteunt integratie via REST, SOAP, OData, GraphQL en JDBC. Daarnaast kunnen ontwikkelaars gebruikmaken van Mendix Connect en de Mendix Marketplace om connectors te vinden of te bouwen voor systemen zoals SAP, Salesforce en Kafka. Voor database-integratie biedt Mendix ondersteuning voor directe JDBC-verbindingen met databases zoals Microsoft SQL, MySQL, Oracle, PostgreSQL en Snowflake.
 
 \subsection{Aanpasbaarheid en uitbreidbaarheid}

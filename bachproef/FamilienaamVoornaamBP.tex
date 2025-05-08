@@ -16,12 +16,7 @@
 
 \makeglossaries
 
-\newglossaryentry{latex}
-{
-    name=latex,
-    description={Is a markup language specially suited 
-        for scientific documents}
-}
+
 
 \newacronym{MDD}{MDD}{Model Driven Development}
 \newacronym{MDA}{MDA}{Model Driven Architecture}
@@ -72,14 +67,13 @@
 }
 
 
-
 % Other packages not already included can be imported here
 
 %%---------- Document metadata -------------------------------------------------
 
 \author{Senne Timbreur}
-\supervisor{Mevr. F.Spriet}
-\cosupervisor{Mevr. J.Alexander}
+\supervisor{Mevr. F. Spriet}
+\cosupervisor{Mevr. J. Alexander}
 \title[Optionele ondertitel]%
 {Grenzen van de low-code tool Mendix}
 \academicyear{\advance\year by -1 \the\year--\advance\year by 1 \the\year}
@@ -142,8 +136,10 @@
     % lines.
     \listoftables
     
-
-    \printglossaries
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Lijst van afkortingen}
+    \printglossary[type=\acronymtype, title={Lijst van afkortingen}]
     
     
     % Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
@@ -212,5 +208,6 @@
     
     \setlength\bibitemsep{2pt} %% Add Some space between the bibliograpy entries
     \printbibliography[heading=bibintoc]
+
     
 \end{document}
