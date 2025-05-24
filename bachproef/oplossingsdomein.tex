@@ -44,14 +44,159 @@ Academisch onderzoek benadrukt zowel de voordelen als de uitdagingen van low-cod
     Hoewel low-code geschikt is voor veel toepassingen, kunnen er beperkingen zijn bij het ontwikkelen van zeer complexe of gespecialiseerde applicaties, waarbij traditionele programmeertalen meer flexibiliteit bieden.
 \end{itemize}
 \section{Praktisch onderzoek}
-TODO
-\\
-\\
+In dit praktisch onderzoek worden twee applicaties met elkaar vergeleken: één ontwikkeld met het low-code platform Mendix en één ontwikkeld met JavaScript en React. Het doel van deze vergelijking is om inzicht te krijgen in de sterktes en beperkingen van beide technologieën op basis van praktijkgerichte criteria. De evaluatie richt zich op zes hoofdgebieden: prestatie en schaalbaarheid, integratiemogelijkheden, aanpasbaarheid en uitbreidbaarheid, ontwikkelsnelheid, beveiliging en compliance, en de algehele gebruikerservaring. Voor elk van deze categorieën zijn gerichte testen uitgevoerd, variërend van technische benchmarks (zoals laadtijd en load testing) tot ontwikkelervaring en gebruiksvriendelijkheid. Door beide applicaties op systematische wijze te testen, wordt duidelijk in welke scenario’s Mendix of juist een traditionele JavaScript/React-stack de voorkeur verdient. De resultaten uit deze vergelijking vormen de basis voor de uiteindelijke conclusie over de toepasbaarheid van beide benaderingen binnen diverse zakelijke contexten.
 \subsection{Schaalbaarheid en prestaties}
+Om een objectieve vergelijking te kunnen maken tussen de in Mendix en in JavaScript/React ontwikkelde applicaties, zijn verschillende prestatie- en schaalbaarheidstesten uitgevoerd. Deze testen richten zich op drie kernaspecten: de laadtijd van de applicatie, de reactietijd op gebruikersacties en de prestaties onder belasting. Voor het meten van de laadtijd zijn tools zoals Google Lighthouse en Chrome DevTools gebruikt, waarmee onder andere de First Contentful Paint (FCP) en de Largest Contentful Paint (LCP) zijn geanalyseerd. Daarnaast is de reactietijd op interacties met de gebruikersinterface gemeten om de responsiviteit van beide applicaties te beoordelen. Tot slot is een load test uitgevoerd met tools als Apache JMeter en k6 om inzicht te krijgen in de schaalbaarheid en het gedrag van de applicaties bij een hoge gebruikersbelasting. Deze metingen geven een duidelijk beeld van de praktische prestaties van beide technologieën in een realistische gebruiksomgeving.
+
+\subsubsection{Laadtijd (Performance)}
+De laadtijd van een webapplicatie is een cruciale factor voor de gebruikerservaring, aangezien gebruikers doorgaans verwachten dat een pagina binnen 2 à 3 seconden volledig geladen is. Om de prestaties van beide applicaties objectief te meten, werd gebruikgemaakt van Google Lighthouse. Deze tool analyseert verschillende web performance-indicatoren, waaronder:
+\begin{itemize}
+    \item \gls{FCP}
+    \item \gls{LCP}
+    \item \gls{TBT}
+    \item Speed Index
+    \item \gls{CLS}
+    \item Performance Score (algemene score op 100)
+\end{itemize}
+Voor zowel de Mendix-applicatie als de JavaScript/React-applicatie werden telkens drie afzonderlijke metingen uitgevoerd. De resultaten van deze testen zijn gemiddeld om zo een eerlijke vergelijking te maken. In onderstaande tabel worden de gemiddelde waarden van de prestaties per platform weergegeven, inclusief een kolom met het rekenkundig gemiddelde tussen de twee platformen ter referentie.
+
+
+\paragraph{JavaScript/React Resultaten}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ |p{3cm}|p{2.75cm}|p{2.75cm}|p{2.75cm}|p{2.75cm}|}
+        \hline
+        \textbf{Metriek} & \textbf{Test 1} & \textbf{Test 2}  & \textbf{Test 3} & \textbf{Gemiddelde}\\
+        \hline
+        \textbf{\gls{FCP}}  & 11.8s & 11.8s & 11.7s & 11.8s \\
+        \hline
+        \textbf{\gls{LCP}} & 22.8s & 22.9s & 22.6s & 22.8s\\
+        \hline
+        \textbf{\gls{TBT}}  & 540ms & 610ms & 340ms & 497ms \\
+        \hline
+        \textbf{Speed Index}  & 11.8s & 11.8s & 11.7s & 11.8s \\
+        \hline
+        \textbf{\gls{CLS}}  & 0 & 0  & 0 & 0 \\
+        \hline
+        \textbf{Performance Score}  & 42 & 40  & 48 & 43 \\
+        \hline
+    \end{tabular}
+    \caption[\centering Testresultaten laadtijd JavaScript/React]{\label{tab:Testresultaten JavaScript/React}Testresultaten JavaScript/React.}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{JS-test1.png}
+    \hfill
+    \includegraphics[width=0.3\textwidth]{JS-test2.png}
+    \hfill
+    \includegraphics[width=0.3\textwidth]{JS-test3.png}
+    \caption{Lighthouse testresultaten JavaScript/React - Links: Test 1, Midden: Test 2, Rechts: Test 3}
+    \label{fig:javascript-simple}
+\end{figure}
+
+\newpage
+\paragraph{Mendix}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ |p{3cm}|p{2.75cm}|p{2.75cm}|p{2.75cm}|p{2.75cm}|}
+        \hline
+        \textbf{Metriek} & \textbf{Test 1} & \textbf{Test 2}  & \textbf{Test 3} & \textbf{Gemiddelde}\\
+        \hline
+        \textbf{\gls{FCP}}  & 13.7s & 13.9s & 13.7s & 13.8s \\
+        \hline
+        \textbf{\gls{LCP}} & 17.8s & 18.2s & 17.8s & 17.9s\\
+        \hline
+        \textbf{\gls{TBT}}  & 330ms & 500ms & 260ms & 363ms \\
+        \hline
+        \textbf{Speed Index}  & 13.7s & 13.9s & 13.7s & 13.8s \\
+        \hline
+        \textbf{\gls{CLS}}  & 0 & 0  & 0 & 0 \\
+        \hline
+        \textbf{Performance Score}  & 48 & 43  & 50 & 47 \\
+        \hline
+    \end{tabular}
+    \caption[\centering Testresultaten laadtijd Mendix]{\label{tab:Testresultaten Mendix}Testresultaten Mendix}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{Mendix-test1.png}
+    \hfill
+    \includegraphics[width=0.3\textwidth]{Mendix-test2.png}
+    \hfill
+    \includegraphics[width=0.3\textwidth]{Mendix-test3.png}
+    \caption{Lighthouse testresultaten Mendix - Links: Test 1, Midden: Test 2, Rechts: Test 3}
+    \label{fig:mendix-simple}
+\end{figure}
+\newpage
+\paragraph{Vergelijkingstabel}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ |p{3cm}|p{2.25cm}|p{2.25cm}|p{2.25cm}|p{3.25cm}|}
+        \hline
+        \textbf{Metriek} & \textbf{JavaScript/} \newline \textbf{React} & \textbf{Mendix}  & \textbf{Verschil} & \textbf{Beste Prestatie}\\
+        \hline
+        \textbf{\gls{FCP}}  & 11.8s & 13.8s & -2.0s & JavaScript/React \\
+        \hline
+        \textbf{\gls{LCP}} & 22.8s & 17.8s & +4.9s & Mendix\\
+        \hline
+        \textbf{\gls{TBT}}  & 497msms & 363ms & +134ms & Mendix \\
+        \hline
+        \textbf{Speed Index}  & 11.8s & 13.8s & -2.0s & JavaScript/React \\
+        \hline
+        \textbf{\gls{CLS}}  & 0 & 0  & Gelijk & Gelijk \\
+        \hline
+        \textbf{Performance Score}  & 43 & 47  & -4 & Mendix \\
+        \hline
+    \end{tabular}
+    \caption[\centering Vergelijkingstabel laadtijd]{\label{tab:Vergelijkingstabel laadtijd}Vergelijkingstabel laadtijd}
+\end{table}
+
+\paragraph{Samenvatting}
+\begin{itemize}
+    \item JavaScript/React is sneller bij \gls{FCP} en Speed Index (2s sneller)
+    \item Mendix presteert beter bij \gls{LCP} (4,9s sneller) en \gls{TBT} (134ms minder)
+    \item Mendix heeft een hogere Performance Score (47 vs 43)
+    \item Beide platforms hebben perfecte \gls{CLS} scores
+    \item Beide platforms scoren onder acceptabele performance niveaus (<50)
+\end{itemize}
+De prestatieverschillen tussen Mendix en JavaScript/React kunnen verklaard worden door fundamentele verschillen in architectuur en uitvoering. JavaScript/React scoort beter op \gls{FCP} doordat het doorgaans gebruikmaakt van een lichte initiële bundel en client-side rendering, waardoor visuele elementen snel zichtbaar zijn. Mendix presteert daarentegen beter op \gls{LCP} en \gls{TBT} dankzij de geïntegreerde backend, geoptimaliseerde dataverwerking en beperkte client-side JavaScript. Door logica server-side af te handelen en automatisch platformoptimalisaties toe te passen, vermindert Mendix de belasting op de browser, wat resulteert in betere prestaties bij het laden van grote elementen en minder blokkeringen tijdens interacties.
+
+\subsubsection{Reactietijd op gebruikersacties}
 TODO
 \\
+Test: Meet de tijd tussen een gebruikersactie (zoals klikken op een knop) en het voltooien van de respons (bijvoorbeeld ophalen van data).
+
+Tool: Browser performance tools
+\subsubsection{Load test/ Stress test}
+TODO
 \\
-Hoewel specifieke benchmarks voor reactietijd en belastingstests niet publiekelijk beschikbaar zijn, is bekend dat Mendix is ontworpen voor cloud-native en schaalbare toepassingen. Het platform ondersteunt containerisatie en multi-cloud-deployments, wat bijdraagt aan hoge beschikbaarheid en schaalbaarheid. Mendix garandeert een uptime van 99,95\% voor premium versies, wat duidt op een robuuste infrastructuur die geschikt is voor toepassingen met hoge beschikbaarheid.
+Test: Voer een load test uit om te zien hoe de applicaties presteren bij een groot aantal gelijktijdige gebruikers.
+
+Tool: Apache JMeter
+
+Doel: Maximaal aantal gelijktijdige gebruikers dat de applicatie aankan voordat performance degradeert.
+
+\subsection{Ontwikkelsnelheid en onderhoud}
+
+\subsubsection{Ontwikkeltijd}
+TODO
+\\
+Test: Vergelijk de daadwerkelijke tijd (in uren/dagen) die nodig was om beide applicaties te bouwen.
+
+Meting: Handmatig loggen van ontwikkelingstijd.
+
+Doel: Beoordelen welke stack sneller resultaat oplevert.
+\subsubsection{Herbruikbaarheid / uitbreidbaarheid}
+TODO
+\\
+Test: Voeg een nieuwe feature toe (zoals een zoekfunctie, filter, of grafiek) en meet hoeveel tijd en code nodig is.
+
+Doel: Evaluatie van aanpasbaarheid en herbruikbaarheid van componenten.
+
 
 \subsection{Integratiemogelijkheden}
 Mendix is ontworpen om gemakkelijk te kunnen integreren met zowel moderne als legacy systemen. De belangrijkste integratietechnieken en mogelijkheden zijn:
