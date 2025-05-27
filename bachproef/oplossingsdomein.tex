@@ -415,7 +415,7 @@ Om de aanpasbaarheid en herbruikbaarheid van componenten te evalueren, is bij be
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Homepage with search Mendix.png}
-    \caption[\centering Homepage with search bar]{\label{fig:homepage-with-search-Mendix} Homepage with search bar Mendix}
+    \caption[\centering Homepage with search bar]{\label{fig:homepage-with-search-Mendix} Homepage met zoekbalk Mendix}
 \end{figure}
 
 
@@ -423,19 +423,16 @@ Om de aanpasbaarheid en herbruikbaarheid van componenten te evalueren, is bij be
 In JavaScript/React duurde het toevoegen van een vergelijkbare zoekfunctie ongeveer 15 minuten, waarbij logica handmatig moest worden geschreven, de zoekinput geïntegreerd diende te worden in de UI, en filtering op de dataset geïmplementeerd werd.
 
 \begin{listing}[H]
-    \begin{minted}
         export default function TrainingsTable({ trainingen, onDelete }) {
             const [searchTerm, setSearchTerm] = useState("");
-            
             // Filter trainingen op basis van zoekterm
             const filteredTrainingen = trainingen.filter((training) =>
             training.naam.toLowerCase().includes(searchTerm.toLowerCase())
             );
-            
+     
             if (trainingen.length === 0) {
                 return <div className="alert alert-info">Nog geen trainingen.</div>;
             }
-            
             return (
             <Box>
             {/* Zoekbalk */}
@@ -446,7 +443,6 @@ In JavaScript/React duurde het toevoegen van een vergelijkbare zoekfunctie ongev
             mb={4}
             maxWidth="300px"
             />
-            
             {/* Tabel */}
             <Table variant="striped" colorScheme="teal" size="sm">
             <Thead>
@@ -462,27 +458,20 @@ In JavaScript/React duurde het toevoegen van een vergelijkbare zoekfunctie ongev
                 filteredTrainingen.map((training) => (
                 <Training key={training.id} onDelete={onDelete} {...training} />
                 ))
-                ) : (
-                <Tr>
-                <Td colSpan={4} textAlign="center" color="gray.500">
-                Geen trainingen gevonden
-                </Td>
-                </Tr>
                 )}
             </Tbody>
             </Table>
             </Box>
             );
         }
-    \end{minted}
-    \caption{Repository clonen of bijwerken}
+    \caption{Trainingstabel met zoekfunctie op naam}
     \label{lst:pipeline-clone}
 \end{listing}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Homepage with search JS.png}
-    \caption[\centering Homepage with search bar JavaScript/React]{\label{fig:homepage-with-search-JS} Homepage with search bar JavaScript/React}
+    \caption[\centering Homepage with search bar JavaScript/React]{\label{fig:homepage-with-search-JS} Homepage met zoekbalk JavaScript/React}
 \end{figure}
 
 
@@ -490,37 +479,119 @@ In JavaScript/React duurde het toevoegen van een vergelijkbare zoekfunctie ongev
 
 
 \subsection{Integratiemogelijkheden}
-Mendix is ontworpen om gemakkelijk te kunnen integreren met zowel moderne als legacy systemen. De belangrijkste integratietechnieken en mogelijkheden zijn:
+
+Zowel Mendix als JavaScript/React bieden uitgebreide mogelijkheden om te integreren met externe systemen, maar de manier waarop deze integraties tot stand komen verschilt aanzienlijk vanwege hun aard: Mendix als low-code platform en JavaScript/React als code-first benadering.
+
+\subsubsection{Mendix}
+
+Mendix is ontworpen om eenvoudig te koppelen met zowel moderne als legacy systemen, met standaard ondersteuning voor verschillende integratietechnieken:
 \begin{itemize}
-    \item \textbf{REST \gls{API}'s}
-    \\
-    Mendix biedt volledige ondersteuning voor het bouwen en gebruiken van RESTful \gls{API}'s. Je kunt makkelijk data van externe systemen ophalen of je eigen services beschikbaar maken voor anderen.
-    Bijvoorbeeld: integreren met een CRM zoals Salesforce of een ERP zoals SAP.
-    \item \textbf{SOAP Webservices}
-    \\
-    Ook oudere webservices (SOAP) worden ondersteund, wat belangrijk is voor legacy systemen.
-    Bijvoorbeeld: communicatie met oudere financiële software of verzekeringssystemen.
-    \item \textbf{GraphQL ondersteuning}
-    \\
-    Hoewel GraphQL niet natively wordt aangeboden zoals REST/SOAP, kan Mendix met plugins en uitbreidingen GraphQL endpoints benaderen.
-    \item \textbf{OData Services}
-    \\
-    Voor standaardisatie en eenvoudige integratie met analytische tools (bijvoorbeeld Power BI) ondersteunt Mendix OData publicatie en consumptie.
+    \item \textbf{REST \gls{API}'s}: volledige ondersteuning voor het bouwen en consumeren van RESTful APIs. Integraties zoals met Salesforce of SAP zijn vlot op te zetten via visuele flows.
+    \item \textbf{SOAP Webservices}: ondersteuning voor oudere protocollen blijft behouden, wat belangrijk is voor bedrijven met legacy infrastructuren.
+    \item \textbf{GraphQL}: niet native ondersteund, maar via extensies of community-modules kunnen GraphQL-endpoints alsnog worden aangesproken.
+    \item \textbf{OData Services}: Mendix biedt OData-integraties voor onder meer BI-tools zoals Power BI.
+    \item \textbf{JDBC-databaseconnecties}: directe verbinding met relationele databases zoals SQL Server, MySQL, PostgreSQL en Oracle.
 \end{itemize}
-Mendix biedt uitgebreide integratiemogelijkheden met externe systemen, \gls{API}’s en databases. Het platform ondersteunt integratie via REST, SOAP, OData, GraphQL en JDBC. Daarnaast kunnen ontwikkelaars gebruikmaken van Mendix Connect en de Mendix Marketplace om connectors te vinden of te bouwen voor systemen zoals SAP, Salesforce en Kafka. Voor database-integratie biedt Mendix ondersteuning voor directe JDBC-verbindingen met databases zoals Microsoft SQL, MySQL, Oracle, PostgreSQL en Snowflake.
+
+Daarnaast is er toegang tot Mendix Connect en de Mendix Marketplace, waar herbruikbare connectors beschikbaar zijn voor populaire systemen zoals SAP, Salesforce, Kafka en meer. Dit maakt het voor ontwikkelaars mogelijk om snel integraties op te zetten zonder complexe code.
+
+\subsubsection{JavaScript/React}
+
+JavaScript/React biedt in essentie volledige vrijheid voor integratie, maar dit betekent ook dat ontwikkelaars zelf verantwoordelijk zijn voor de implementatie van alle benodigde logica en security rond die integraties:
+\begin{itemize}
+    \item \textbf{REST en GraphQL}: beide worden uitstekend ondersteund via moderne bibliotheken zoals Axios, Fetch API, Apollo Client of Relay.
+    \item \textbf{WebSocket en realtime communicatie}: makkelijk op te zetten met bibliotheken zoals Socket.IO.
+    \item \textbf{SOAP}: mogelijk, maar vereist aparte libraries (zoals soap in Node.js), aangezien SOAP minder gangbaar is in moderne JavaScript-ecosystemen.
+    \item \textbf{Directe databaseverbindingen}: in een typische React frontend niet van toepassing, maar in combinatie met een Node.js backend kunnen via ORM's (zoals Sequelize, Prisma) databases als MySQL, PostgreSQL of MongoDB worden aangesproken.
+\end{itemize}
+
+JavaScript/React biedt maximale controle, flexibiliteit en toegang tot een breed scala aan open-source libraries en SDK’s. Wel vraagt het opzetten van integraties meer technische kennis en aandacht voor zaken als foutafhandeling, authenticatie (OAuth, JWT) en datastructurering.
+
+\subsubsection{Vergelijking}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ |p{3cm}|p{5.5cm}|p{5.5cm}|}
+        \hline
+        \textbf{Aspect} & \textbf{Mendix} & \textbf{JavaScript/React}\\
+        \hline
+        \textbf{Complexiteit}  & Laag, via visuele modelering en kant-en-klare connectors & Hoog, handmatig implementeren via code  \\
+        \hline
+        \textbf{Ondersteunde protocollen} & REST, SOAP, OData, JDBC, GraphQL (indirect) & REST, GraphQL, WebSockets, SOAP (met lib) \\
+        \hline
+        \textbf{Herbruikbare integraties}  & Beschikbaar via Mendix Marketplace & 	Zelf te beheren of via externe NPM packages \\
+        \hline
+        \textbf{Flexibiliteit}  & 	Beperkt tot wat het platform ondersteunt & Zeer hoog, volledige controle over gedrag \\
+        \hline                       
+        \textbf{Snelheid van integratie}  & 	Zeer snel (minuten) met visuele ondersteuning & Langzamer (uren), afhankelijk van de setup \\
+        \hline
+    \end{tabular}
+    \caption[\centering Integratiemogelijkheden]{\label{tab:integratiemogelijkheden}Integratiemogelijkheden}
+\end{table}
+In essentie is Mendix zeer geschikt wanneer snelheid, standaardisatie en visuele eenvoud voorop staan. JavaScript/React is de juiste keuze wanneer maximale flexibiliteit, diepgaande aanpassing en custom integraties vereist zijn — mits de nodige technische expertise aanwezig is.
+
 
 \subsection{Aanpasbaarheid en uitbreidbaarheid}
-Het Mendix-platform is zeer aanpasbaar en uitbreidbaar. Ontwikkelaars kunnen aangepaste functionaliteiten implementeren via Java-acties, pluggable widgets (op basis van React of JavaScript) en de Mendix Model SDK. Daarnaast kunnen ontwikkelaars het platform uitbreiden met behulp van de Extensibility \gls{API}, waarmee nieuwe functionaliteiten aan Studio Pro kunnen worden toegevoegd.
 
-\subsection{Ontwikkelingssnelheid}
-Mendix staat bekend om zijn snelle ontwikkelingsmogelijkheden. Het platform maakt gebruik van een visuele ontwikkelomgeving, herbruikbare componenten en een geïntegreerde CI/CD-pijplijn, wat bijdraagt aan een verhoogde ontwikkelsnelheid. Volgens \textcite{MxTechies} kunnen applicaties tot 10 keer sneller worden gebouwd met 70\% minder middelen. 
+Het Mendix-platform combineert de snelheid van low-code ontwikkeling met voldoende flexibiliteit voor geavanceerde uitbreidingen. Standaard biedt Mendix een brede waaier aan voorgeprogrammeerde blokken en componenten, zoals widgets, datakoppelingen, validatieacties en gebruikersinterface-elementen, die eenvoudig via drag-and-drop in de applicatie kunnen worden geïntegreerd. Deze componenten versnellen het ontwikkelproces aanzienlijk en vereisen minimale configuratie.
+
+Toch blijft het platform niet beperkt tot wat standaard beschikbaar is. Voor situaties waarin maatwerk vereist is, biedt Mendix meerdere uitbreidingsmogelijkheden:
+\begin{itemize}
+    \item \textbf{Java-acties}: voor het uitvoeren van complexe server-side logica kunnen aangepaste Java-methoden worden ingebouwd.
+    \item \textbf{Pluggable widgets}: ontwikkelaars kunnen hun eigen UI-componenten maken in JavaScript of React, die vervolgens naadloos integreren met het Mendix-model.
+    \item \textbf{Mendix Model SDK}: hiermee kunnen ontwikkelaars programmatic wijzigingen aanbrengen in het domeinmodel of app-logica, bijvoorbeeld voor codegeneratie of CI/CD-integratie.
+    \item \textbf{Extensibility \gls{API}}: maakt het mogelijk om Studio Pro zelf uit te breiden met nieuwe functionaliteit, wat handig is voor grotere ontwikkelteams of platformontwikkeling.
+\end{itemize}
+
+In vergelijking met JavaScript/React biedt Mendix een meer gestandaardiseerde aanpak, waarbij veelgebruikte patronen al zijn voorgedefinieerd. Dit maakt het zeer efficiënt voor snelle ontwikkeling en eenvoudige aanpassingen. JavaScript/React daarentegen biedt volledige vrijheid en maatwerk vanaf nul, maar vereist meer handmatige inspanning en technische kennis voor uitbreidbaarheid.
+
+Mendix positioneert zich daarmee als een platform dat zowel toegankelijk is voor snelle ontwikkeling via visuele bouwblokken, als krachtig genoeg om uit te breiden wanneer standaardcomponenten niet volstaan, zonder de ontwikkelaar volledig vast te zetten binnen het framework.
+
 
 \subsection{Beveiliging en compliance}
-Mendix hecht veel waarde aan beveiliging en compliance. Het platform biedt uitgebreide beveiligingsmaatregelen, waaronder toegangsbeheer, gegevensversleuteling en ondersteuning voor beveiligingsstandaarden. Daarnaast ondersteunt Mendix de opslag van applicatiegegevens in SQL-databases naar keuze, wat organisaties flexibiliteit biedt in gegevensbeheer en compliance. 
-\\
-\\
-\subsection{Conclusie}
-De uitgevoerde tests tonen aan dat Mendix een krachtig en flexibel low-code platform is dat geschikt is voor het bouwen van schaalbare, geïntegreerde en veilige applicaties. De uitgebreide integratiemogelijkheden, aanpasbaarheid en snelle ontwikkelcyclus maken het platform bijzonder geschikt voor diverse bedrijfsbehoeften.
+
+Beveiliging en compliance zijn cruciale aspecten bij de ontwikkeling van moderne toepassingen, en zowel Mendix als JavaScript/React bieden hier oplossingen voor wel  op verschillende manieren.
+
+\subsubsection{Mendix}
+
+Mendix hecht veel waarde aan beveiliging en biedt een breed scala aan ingebouwde beveiligingsmechanismen. Standaard voorziet het platform in:
+\begin{itemize}
+    \item \textbf{Rollen- en toegangsbeheer op applicatie- en entiteitniveau}, configureerbaar via de modeler.
+    \item \textbf{Gegevensversleuteling} zowel in rust als tijdens transport.
+    \item \textbf{Authenticatie-integratie} met SSO, OAuth 2.0, SAML en Active Directory.
+    \item \textbf{Automatische beveiligingsupdates} en naleving van standaarden zoals ISO 27001, SOC 2 en GDPR.
+\end{itemize}
+
+Doordat veel beveiligingsmaatregelen standaard in het platform zitten, hoeven ontwikkelaars zich minder zorgen te maken over implementatiedetails. Daarnaast ondersteunt Mendix opslag in beheerde of eigen SQL-databases (zoals PostgreSQL, MS SQL of Oracle), wat organisaties flexibiliteit biedt in gegevensbeheer en compliance.
+
+\subsubsection{JavaScript/React}
+
+In een JavaScript/React-omgeving ligt de verantwoordelijkheid voor beveiliging volledig bij het ontwikkelingsteam. React zelf biedt geen beveiligingsfunctionaliteit; beveiliging moet worden geïmplementeerd via aanvullende tools en best practices:
+\begin{itemize}
+    \item \textbf{Toegangscontrole en authenticatie} worden vaak geregeld via third-party services (zoals Auth0, Firebase Auth) of via backend-implementaties (JWT, OAuth).
+    \item \textbf{Encryptie en veilige opslag} moeten handmatig worden geconfigureerd op server- en transportniveau (bv. HTTPS, TLS, encryptie van gevoelige data in databases).
+    \item \textbf{Veiligheidsrisico’s zoals XSS en CSRF} moeten proactief worden gemitigeerd via frameworks of headers (CSP, SameSite cookies, sanitization).
+    \item \textbf{Compliance} met regelgeving (zoals GDPR) vereist eigen implementatie van dataverwerking, audit logging en toestemmingsbeheer.
+\end{itemize}
+
+Hoewel React dus maximale controle biedt, vraagt het ook een aanzienlijke investering in kennis en tooling om een vergelijkbaar beveiligingsniveau als bij Mendix te bereiken.
+
+
+\subsubsection{Vergelijking}
+
+Mendix biedt een zeer veilig ecosysteem met veel standaardmaatregelen die de ontwikkelaar ontlasten. Voor organisaties met strikte compliance-eisen of beperkte beveiligingsexpertise is dit een groot voordeel. JavaScript/React daarentegen biedt volledige vrijheid en controle, maar vereist een zorgvuldige en goed onderbouwde aanpak om dezelfde mate van beveiliging en compliance te realiseren.
+
+
+\subsection{Samenvattende conclusie praktisch onderzoek}
+Uit het praktisch onderzoek blijkt dat zowel Mendix als JavaScript/React sterke troeven bieden voor de ontwikkeling van moderne webapplicaties, maar dat hun inzetbaarheid sterk afhankelijk is van de context en vereisten van het project.
+
+Qua integratiemogelijkheden toont Mendix zich als een krachtig low-code platform met standaard ondersteuning voor veelgebruikte protocollen zoals REST, SOAP en OData. De beschikbaarheid van kant-en-klare connectors via de Mendix Marketplace zorgt voor snelle, visuele integratie met externe systemen. JavaScript/React daarentegen biedt maximale flexibiliteit en controle bij het integreren met externe services, maar vereist meer technische expertise en handmatige implementatie.
+
+Op vlak van aanpasbaarheid en uitbreidbaarheid scoort Mendix hoog met zijn pluggable widgets, Java-acties en Model SDK, wat toelaat om standaardcomponenten uit te breiden wanneer nodig. Toch blijft JavaScript/React onovertroffen in maatwerk en volledige controle over zowel front- als backendlogica, zij het met een hogere ontwikkelkost.
+
+Wat beveiliging en compliance betreft, biedt Mendix een veilig ecosysteem met veel ingebouwde maatregelen en certificeringen, wat het platform bijzonder geschikt maakt voor organisaties met hoge compliance-eisen of beperkte beveiligingsexpertise. JavaScript/React vereist daarentegen een meer proactieve aanpak van het ontwikkelingsteam om dezelfde beveiligingsstandaarden te behalen.
+
+Samengevat is Mendix ideaal voor projecten waarbij snelheid, standaardisatie en visuele ontwikkeling centraal staan, terwijl JavaScript/React de voorkeur geniet in situaties waar volledige controle, flexibiliteit en diepgaande technische aanpassing vereist zijn. De keuze tussen beide technologieën is dus geen kwestie van beter of slechter, maar eerder van passend bij het juiste type project en ontwikkelteam.
 
 
 \section{Reflectie op eigen ervaringen}
