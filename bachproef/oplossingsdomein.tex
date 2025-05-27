@@ -617,9 +617,78 @@ Wat betreft de kosten-batenverhouding, geven ontwikkelaars aan dat low-code in c
 Tot slot werd ook het integreren van externe systemen als een uitdaging benoemd. Hoewel Mendix hier voldoende ondersteuning voor biedt, vergt het combineren van low-code met externe services een goed begrip van beide kanten. Een technische achtergrond blijkt in die context bijzonder waardevol, zowel voor het begrijpen van de externe API’s als voor het bouwen van robuuste, onderhoudbare koppelingen binnen het platform. Al met al tonen deze bevindingen aan dat een doordachte strategie, met oog voor schaalbaarheid en onderhoud, essentieel is bij het uitbreiden van Mendix-toepassingen.
 
 \section{Ontwikkeling beslissingskader}
-TODO
-\\
-\\
+
+\subsection{1. Cijfermatige evaluatiematrix}
+Voor een snelle vergelijking tussen Mendix en traditionele ontwikkeling is in Tabel~\ref{tab:beslissingsvragen} een scorematrix opgenomen. Per dimensie is een score van 1 tot 5 toegekend, waarbij 5 duidt op een sterke geschiktheid van de technologie in die context. Deze matrix ondersteunt de eerste oriëntatie in het besluitvormingsproces.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|p{3cm}|p{5cm}|p{2cm}|p{4cm}|}
+        \hline
+        \textbf{Dimensie} & \textbf{Vraag} & \textbf{Score (1–5)} & \textbf{Toelichting} \\
+        \hline
+        \textbf{Tijd \& Scope} & Moet er binnen enkele \newline weken een MVP live zijn? & & 1 = Ja, 5 = Nee \\
+        \cline{2-4}
+         & Is het project iteratief/ veranderlijk (agile, MVP-gedreven)? & & 1 = Sterk veranderlijk, 5 = Vast ontwerp \\
+        \hline
+        \textbf{Technische \newline Vereisten} & Is de businesslogica \newline complex of sterk veranderlijk? & & 1 = Simpel, 5 = \newline Complex/custom \newline algoritmes \\
+        \cline{2-4}
+         & Zijn real-time functionaliteiten vereist (sockets, streaming)? & & 1 = Nee, 5 = Ja \\
+        \hline
+        \textbf{Teamcapaciteit} & Zijn er voldoende ervaren developers beschikbaar (JS/Node/etc.)? & & 1 = Nee, 5 = Ja \\
+        \cline{2-4}
+         & Zijn er citizen developers of functioneel beheerders betrokken? & & 1 = Ja, 5 = Nee \\
+        \hline
+        \textbf{Integratiebe- hoefte} & Betreft het veel standaard systemen (SAP, \newline Salesforce)? & & 1 = Ja, 5 = Nee \\
+        \cline{2-4}
+         & Gaat het om non-standaard of complexe API-integraties? & & 1 = Nee, 5 = Ja \\
+        \hline
+        \textbf{UX/Design} & Moet de UI sterk afwijken van \newline standaardcomponenten? & & 1 = Nee, 5 = Ja \\
+        \cline{2-4}
+         & Is er nauwe \newline samenwerking nodig met UX-designers of brandingteams? & & 1 = Beperkt, 5 = \newline Intensief \\
+        \hline
+        \textbf{Beveiliging \& Compliance} & Zijn er strikte eisen (GDPR, ISO, interne audits)? & & 1 = Ja, 5 = Nee \\
+        \cline{2-4}
+         & Wordt gevoelige of gereguleerde data verwerkt? & & 1 = Ja, 5 = Nee \\
+        \hline
+    \end{tabular}
+    \caption{Beoordelingscriteria per dimensie}
+    \label{tab:beoordelingsvragen}
+\end{table}
+
+\subsubsection{Interpretatie van de score}
+De totaalscore op basis van de beoordelingsmatrix uit Sectie 2 biedt richting bij de keuze van ontwikkelmethode:
+
+\begin{itemize}
+    \item \textbf{10–20 punten: Mendix aanbevolen} \\
+    Geschikt voor projecten die vragen om snelheid, visueel modelleren, standaardisatie en minder technische complexiteit.
+    
+    \item \textbf{21–34 punten: Hybride oplossing overwegen} \\
+    Combineer Mendix met traditionele ontwikkeling, bijvoorbeeld Mendix voor workflows en beheerfuncties, en traditionele technologieën voor UI of complexe businesslogica.
+    
+    \item \textbf{35–50 punten: Traditionele ontwikkeling aanbevolen} \\
+    Vereist maximale flexibiliteit, diepgaande technische implementaties of specifieke designvereisten die moeilijk in low-code te realiseren zijn.
+\end{itemize}
+
+\paragraph{Let op:} Bij een hybride of twijfelgeval speelt het teamvertrouwen een belangrijke rol. Als een team meer ervaring of vertrouwen heeft in één van beide technologieën, verdient het de voorkeur om die richting te volgen, mits dit past binnen de technische kaders van het project.
+
+De matrix fungeert als sneltoets, maar dient aangevuld te worden met projectcontext en nuance. Hiervoor zijn verdiepende beoordelingsvragen opgenomen in de volgende paragraaf.
+
+\subsection{2. Beoordelingscriteria per dimensie}
+Voor elk project kunnen onderstaande vragen per dimensie als leidraad dienen bij het maken van een weloverwogen keuze...
+
+% (en hier volgt je bestaande tekst uit §2)
+
+\subsection{3. Richtlijnen voor hybride projecten}
+% (je bestaande richtlijnen hier)
+
+\subsection{4. Risicobeheersing en leerstrategieën}
+% (je bestaande aanbevelingen hier)
+
+
+
+
+
 Voor het beantwoorden van deelvraag 8, die zich richt op het destilleren van best practices en richtlijnen voor de keuze tussen Mendix en traditionele ontwikkeling, wordt een gestructureerd beslissingskader ontwikkeld. Dit kader ondersteunt projectmanagers en architecten bij het maken van weloverwogen keuzes over de inzet van Mendix in vergelijking met conventionele ontwikkelmethoden. Het biedt beslissingspunten voor de initiële keuze tussen Mendix en traditionele ontwikkeling en stelt criteria vast om te bepalen welke projectonderdelen beter geschikt zijn voor high-code ontwikkeling. Daarnaast worden richtlijnen geformuleerd voor het effectief combineren van low-code en high-code in hybride projecten, zodat beide benaderingen optimaal kunnen worden ingezet. Verder bevat het kader aanbevelingen voor de vroege identificatie van potentiële beperkingen en risico’s, waardoor projectrisico’s proactief kunnen worden gemitigeerd. Tot slot worden strategieën ontwikkeld om op basis van eerdere ervaringen en literatuur weloverwogen keuzes te maken bij toekomstige projecten. Dit beslissingskader draagt bij aan een systematische en onderbouwde aanpak voor het selecteren van de meest geschikte ontwikkelmethode binnen uiteenlopende projectcontexten.
 
 
