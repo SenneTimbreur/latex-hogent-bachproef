@@ -316,7 +316,7 @@ Bij de testen werd specifiek gekeken naar het toevoegen van een nieuw item binne
 
 
 \paragraph{Conclusie}
-Hoewel JavaScript met 100 ms iets sneller is dan Mendix met 170 ms van start tot completion, is het verschil van 70 ms relatief klein en valt het binnen een categorie van zeer responsieve prestaties. JavaScript profiteert van snellere verwerking, maar omvat ook een server roundtrip van ongeveer 30 ms via XHR calls, terwijl Mendix juist meer lokale verwerking en garbage collection uitvoert, wat zorgt voor extra framework overhead. Beide platformen tonen vergelijkbare tijden voor de kernlogica (~50-60 ms), wat aangeeft dat het verschil vooral zit in de UI rendering en framework processing. Voor een kleine applicatie is deze lichte vertraging in Mendix een acceptabele trade-off, gezien de rijkere functionaliteit en gebruikerservaring die het biedt. Bij grotere en complexere applicaties kan de Mendix overhead echter toenemen, wat de prestaties meer beïnvloedt. Desondanks leveren beide technologieën een vrijwel directe respons die gebruikers als “instant” ervaren, waardoor deze realistische vergelijking een eerlijk beeld geeft van de praktische prestaties in echte toepassingen.
+Hoewel JavaScript met 100 ms iets sneller is dan Mendix met 170 ms van start tot completion, is het verschil van 70 ms relatief klein en valt het binnen een categorie van zeer responsieve prestaties. JavaScript profiteert van snellere verwerking, maar omvat ook een server roundtrip van ongeveer 30 ms via \gls{XHR} calls, terwijl Mendix juist meer lokale verwerking en garbage collection uitvoert, wat zorgt voor extra framework overhead. Beide platformen tonen vergelijkbare tijden voor de kernlogica (~50-60 ms), wat aangeeft dat het verschil vooral zit in de UI rendering en framework processing. Voor een kleine applicatie is deze lichte vertraging in Mendix een acceptabele trade-off, gezien de rijkere functionaliteit en gebruikerservaring die het biedt. Bij grotere en complexere applicaties kan de Mendix overhead echter toenemen, wat de prestaties meer beïnvloedt. Desondanks leveren beide technologieën een vrijwel directe respons die gebruikers als “instant” ervaren, waardoor deze realistische vergelijking een eerlijk beeld geeft van de praktische prestaties in echte toepassingen.
 
 
 
@@ -324,7 +324,7 @@ Hoewel JavaScript met 100 ms iets sneller is dan Mendix met 170 ms van start tot
 Om de schaalbaarheid en robuustheid van de webapplicaties te evalueren onder verschillende belastingniveaus, werden ook loadtesten uitgevoerd. Deze testen simuleren een toenemend aantal gelijktijdige gebruikers om te bepalen hoe de applicaties presteren onder stress en om eventuele knelpunten te identificeren.
 
 \subsubsection{Resultaten}
-De loadtesten zijn uitgevoerd door het simuleren van HTTP-verzoeken voor een oplopend aantal gebruikers (10, 100, 250, 500, 1000, 2500 gebruikers) voor zowel de Mendix- als de JavaScript/React-applicatie. De belangrijkste metingen die zijn geanalyseerd, omvatten het gemiddelde reactietijd, de doorvoer (throughput) en het foutpercentage (Error \%).
+De loadtesten zijn uitgevoerd door het simuleren van HTTP-verzoeken voor een oplopend aantal gebruikers (10, 100, 250, 500, 1000, 2500 gebruikers) voor zowel de Mendix- als de JavaScript/React-applicatie. Hierbij is gebruikgemaakt van Apache JMeter, een veelgebruikte tool voor het uitvoeren van prestatietests, waarmee realistische gebruikersinteracties kunnen worden nagebootst. De belangrijkste metingen die zijn geanalyseerd, omvatten de gemiddelde reactietijd, de doorvoer (throughput) en het foutpercentage (Error \%).
 
 \paragraph{JavaScript/React resultaten load testen}
 
@@ -391,32 +391,110 @@ De loadtesten zijn uitgevoerd door het simuleren van HTTP-verzoeken voor een opl
 
 
 
-\paragraph{Mendix resultaten load testen}
+\paragraph{Conclusie}
+Hoewel een JavaScript/React-applicatie theoretisch het potentieel heeft om Mendix te overtreffen in absolute prestaties, blijkt dit in de huidige load-testscenario’s niet het geval onder verhoogde belasting. Waar React flexibiliteit en volledige controle biedt voor optimalisatie, vereist dit ook aanzienlijke expertise en afstemming om daadwerkelijk robuust te blijven bij hoge gelijktijdige gebruikersaantallen. In de praktijk toont Mendix zich in deze tests stabieler, met name op het gebied van foutafhandeling en consistentie bij toenemende load. Dit is te danken aan de platformgebonden optimalisaties, standaardisatie en ingebouwde schaalbaarheidsmechanismen.
+
+Beide technologieën hebben dus hun sterktes: Mendix excelleert in betrouwbaarheid en voorspelbaarheid bij grotere gebruikersvolumes, terwijl JavaScript/React – mits zorgvuldig geoptimaliseerd – de mogelijkheid biedt tot betere piekprestaties. De keuze hangt dan ook sterk af van de context en prioriteiten: snelle ontwikkeltrajecten met robuuste baseline-prestaties (Mendix) tegenover maximale flexibiliteit en performancepotentieel met meer technische investering (JavaScript/React). In de geteste scenario’s levert Mendix momenteel het meest consistente gedrag onder druk, wat voor veel toepassingen een doorslaggevend voordeel kan zijn.
+
 
 \subsection{Ontwikkelsnelheid en onderhoud}
 
 \subsubsection{Ontwikkeltijd}
-TODO
-\\
-Test: Vergelijk de daadwerkelijke tijd (in uren/dagen) die nodig was om beide applicaties te bouwen.
+De ontwikkeltijd is handmatig bijgehouden voor beide applicaties om een realistische inschatting te geven van de benodigde inspanning. Voor de JavaScript/React-applicatie bedroeg de totale ontwikkeltijd ongeveer 5 uur, waarbij tijd werd besteed aan het opzetten van de ontwikkelomgeving, het schrijven van de logica, het afhandelen van \gls{API}-calls, en het bouwen van de gebruikersinterface. Voor de Mendix-applicatie daarentegen was slechts 30 minuten nodig om een functioneel equivalent te realiseren. Deze aanzienlijke tijdwinst is te verklaren door het gebruik van vooraf gedefinieerde componenten, visuele modellering en standaardfunctionaliteit binnen het Mendix-platform. Hoewel JavaScript/React meer flexibiliteit en controle biedt, vereist het ook meer technische expertise en ontwikkelinspanning. Mendix blijkt in dit opzicht bijzonder efficiënt voor het snel realiseren van functionele prototypes of standaardapplicaties.
 
-Meting: Handmatig loggen van ontwikkelingstijd.
-
-Doel: Beoordelen welke stack sneller resultaat oplevert.
 \subsubsection{Herbruikbaarheid / uitbreidbaarheid}
-TODO
-\\
-Test: Voeg een nieuwe feature toe (zoals een zoekfunctie, filter, of grafiek) en meet hoeveel tijd en code nodig is.
+Om de aanpasbaarheid en herbruikbaarheid van componenten te evalueren, is bij beide applicaties een zoekfunctie toegevoegd. Dit biedt inzicht in hoe snel en flexibel nieuwe functionaliteit kan worden geïntegreerd. In Mendix kon de zoekfunctionaliteit in slechts 1 minuut worden geactiveerd door een bestaande zoekoptie in het component eenvoudig aan te zetten via de modeler-interface, een handeling die letterlijk neerkomt op het selecteren van een checkbox. 
 
-Doel: Evaluatie van aanpasbaarheid en herbruikbaarheid van componenten.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{show colomn filters.png}
+    \caption[\centering Checkbox aanzetten filters]{\label{fig:show-colomn-filters-Mendix} Checkbox aanzetten filters}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Homepage with search Mendix.png}
+    \caption[\centering Homepage with search bar]{\label{fig:homepage-with-search-Mendix} Homepage with search bar Mendix}
+\end{figure}
+
+
+
+In JavaScript/React duurde het toevoegen van een vergelijkbare zoekfunctie ongeveer 15 minuten, waarbij logica handmatig moest worden geschreven, de zoekinput geïntegreerd diende te worden in de UI, en filtering op de dataset geïmplementeerd werd.
+
+\begin{listing}[H]
+    \begin{minted}
+        export default function TrainingsTable({ trainingen, onDelete }) {
+            const [searchTerm, setSearchTerm] = useState("");
+            
+            // Filter trainingen op basis van zoekterm
+            const filteredTrainingen = trainingen.filter((training) =>
+            training.naam.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            
+            if (trainingen.length === 0) {
+                return <div className="alert alert-info">Nog geen trainingen.</div>;
+            }
+            
+            return (
+            <Box>
+            {/* Zoekbalk */}
+            <Input
+            placeholder="Zoek op naam..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            mb={4}
+            maxWidth="300px"
+            />
+            
+            {/* Tabel */}
+            <Table variant="striped" colorScheme="teal" size="sm">
+            <Thead>
+            <Tr>
+            <Th>Naam</Th>
+            <Th>Thema</Th>
+            <Th>Leeftijdsgroep</Th>
+            <Th></Th>
+            </Tr>
+            </Thead>
+            <Tbody>
+            {filteredTrainingen.length > 0 ? (
+                filteredTrainingen.map((training) => (
+                <Training key={training.id} onDelete={onDelete} {...training} />
+                ))
+                ) : (
+                <Tr>
+                <Td colSpan={4} textAlign="center" color="gray.500">
+                Geen trainingen gevonden
+                </Td>
+                </Tr>
+                )}
+            </Tbody>
+            </Table>
+            </Box>
+            );
+        }
+    \end{minted}
+    \caption{Repository clonen of bijwerken}
+    \label{lst:pipeline-clone}
+\end{listing}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Homepage with search JS.png}
+    \caption[\centering Homepage with search bar JavaScript/React]{\label{fig:homepage-with-search-JS} Homepage with search bar JavaScript/React}
+\end{figure}
+
+
+ Hoewel de implementatie in beide gevallen vlot verliep, toont dit voorbeeld aan dat Mendix dankzij herbruikbare en vooraf geconfigureerde componenten bijzonder efficiënt is bij het uitbreiden van functionaliteit, terwijl JavaScript/React meer flexibiliteit biedt maar ook meer ontwikkelwerk vraagt.
 
 
 \subsection{Integratiemogelijkheden}
 Mendix is ontworpen om gemakkelijk te kunnen integreren met zowel moderne als legacy systemen. De belangrijkste integratietechnieken en mogelijkheden zijn:
 \begin{itemize}
-    \item \textbf{REST API's}
+    \item \textbf{REST \gls{API}'s}
     \\
-    Mendix biedt volledige ondersteuning voor het bouwen en gebruiken van RESTful API's. Je kunt makkelijk data van externe systemen ophalen of je eigen services beschikbaar maken voor anderen.
+    Mendix biedt volledige ondersteuning voor het bouwen en gebruiken van RESTful \gls{API}'s. Je kunt makkelijk data van externe systemen ophalen of je eigen services beschikbaar maken voor anderen.
     Bijvoorbeeld: integreren met een CRM zoals Salesforce of een ERP zoals SAP.
     \item \textbf{SOAP Webservices}
     \\
@@ -429,10 +507,10 @@ Mendix is ontworpen om gemakkelijk te kunnen integreren met zowel moderne als le
     \\
     Voor standaardisatie en eenvoudige integratie met analytische tools (bijvoorbeeld Power BI) ondersteunt Mendix OData publicatie en consumptie.
 \end{itemize}
-Mendix biedt uitgebreide integratiemogelijkheden met externe systemen, API’s en databases. Het platform ondersteunt integratie via REST, SOAP, OData, GraphQL en JDBC. Daarnaast kunnen ontwikkelaars gebruikmaken van Mendix Connect en de Mendix Marketplace om connectors te vinden of te bouwen voor systemen zoals SAP, Salesforce en Kafka. Voor database-integratie biedt Mendix ondersteuning voor directe JDBC-verbindingen met databases zoals Microsoft SQL, MySQL, Oracle, PostgreSQL en Snowflake.
+Mendix biedt uitgebreide integratiemogelijkheden met externe systemen, \gls{API}’s en databases. Het platform ondersteunt integratie via REST, SOAP, OData, GraphQL en JDBC. Daarnaast kunnen ontwikkelaars gebruikmaken van Mendix Connect en de Mendix Marketplace om connectors te vinden of te bouwen voor systemen zoals SAP, Salesforce en Kafka. Voor database-integratie biedt Mendix ondersteuning voor directe JDBC-verbindingen met databases zoals Microsoft SQL, MySQL, Oracle, PostgreSQL en Snowflake.
 
 \subsection{Aanpasbaarheid en uitbreidbaarheid}
-Het Mendix-platform is zeer aanpasbaar en uitbreidbaar. Ontwikkelaars kunnen aangepaste functionaliteiten implementeren via Java-acties, pluggable widgets (op basis van React of JavaScript) en de Mendix Model SDK. Daarnaast kunnen ontwikkelaars het platform uitbreiden met behulp van de Extensibility API, waarmee nieuwe functionaliteiten aan Studio Pro kunnen worden toegevoegd.
+Het Mendix-platform is zeer aanpasbaar en uitbreidbaar. Ontwikkelaars kunnen aangepaste functionaliteiten implementeren via Java-acties, pluggable widgets (op basis van React of JavaScript) en de Mendix Model SDK. Daarnaast kunnen ontwikkelaars het platform uitbreiden met behulp van de Extensibility \gls{API}, waarmee nieuwe functionaliteiten aan Studio Pro kunnen worden toegevoegd.
 
 \subsection{Ontwikkelingssnelheid}
 Mendix staat bekend om zijn snelle ontwikkelingsmogelijkheden. Het platform maakt gebruik van een visuele ontwikkelomgeving, herbruikbare componenten en een geïntegreerde CI/CD-pijplijn, wat bijdraagt aan een verhoogde ontwikkelsnelheid. Volgens \textcite{MxTechies} kunnen applicaties tot 10 keer sneller worden gebouwd met 70\% minder middelen. 
