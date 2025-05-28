@@ -167,7 +167,7 @@ Voor zowel de Mendix-applicatie als de JavaScript/React-applicatie werden telken
         \hline
         \textbf{\gls{LCP}} & 22.8s & 17.8s & +4.9s & Mendix\\
         \hline
-        \textbf{\gls{TBT}}  & 497msms & 363ms & +134ms & Mendix \\
+        \textbf{\gls{TBT}}  & 497ms & 363ms & +134ms & Mendix \\
         \hline
         \textbf{Speed Index}  & 11.8s & 13.8s & -2.0s & JavaScript/React \\
         \hline
@@ -429,38 +429,34 @@ In JavaScript/React duurde het toevoegen van een vergelijkbare zoekfunctie ongev
             const filteredTrainingen = trainingen.filter((training) =>
             training.naam.toLowerCase().includes(searchTerm.toLowerCase())
             );
-     
-            if (trainingen.length === 0) {
-                return <div className="alert alert-info">Nog geen trainingen.</div>;
-            }
             return (
             <Box>
             {/* Zoekbalk */}
-            <Input
-            placeholder="Zoek op naam..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            mb={4}
-            maxWidth="300px"
-            />
+                <Input
+                placeholder="Zoek op naam..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                mb={4}
+                maxWidth="300px"
+                />
             {/* Tabel */}
-            <Table variant="striped" colorScheme="teal" size="sm">
-            <Thead>
-            <Tr>
-            <Th>Naam</Th>
-            <Th>Thema</Th>
-            <Th>Leeftijdsgroep</Th>
-            <Th></Th>
-            </Tr>
-            </Thead>
-            <Tbody>
-            {filteredTrainingen.length > 0 ? (
-                filteredTrainingen.map((training) => (
-                <Training key={training.id} onDelete={onDelete} {...training} />
-                ))
-                )}
-            </Tbody>
-            </Table>
+                <Table variant="striped" colorScheme="teal" size="sm">
+                    <Thead>
+                        <Tr>
+                            <Th>Naam</Th>
+                            <Th>Thema</Th>
+                            <Th>Leeftijdsgroep</Th>
+                            <Th></Th>
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+                        {filteredTrainingen.length > 0 ? (
+                         filteredTrainingen.map((training) => (
+                            <Training key={training.id} onDelete={onDelete} {...training} />
+                            ))
+                        )}
+                    </Tbody>
+                </Table>
             </Box>
             );
         }
@@ -617,8 +613,6 @@ Wat betreft de kosten-batenverhouding, geven ontwikkelaars aan dat low-code in c
 Tot slot werd ook het integreren van externe systemen als een uitdaging benoemd. Hoewel Mendix hier voldoende ondersteuning voor biedt, vergt het combineren van low-code met externe services een goed begrip van beide kanten. Een technische achtergrond blijkt in die context bijzonder waardevol, zowel voor het begrijpen van de externe API’s als voor het bouwen van robuuste, onderhoudbare koppelingen binnen het platform. Al met al tonen deze bevindingen aan dat een doordachte strategie, met oog voor schaalbaarheid en onderhoud, essentieel is bij het uitbreiden van Mendix-toepassingen.
 
 \section{Ontwikkeling beslissingskader}
-
-\subsection{Cijfermatige evaluatiematrix}
 Voor een snelle vergelijking tussen Mendix en traditionele ontwikkeling is in Tabel~\ref{tab:beslissingsmatrix} een scorematrix opgenomen. Per dimensie is een score van 1 tot 5 toegekend, waarbij 5 duidt op een sterke geschiktheid van de technologie in die context. Deze matrix ondersteunt de eerste oriëntatie in het besluitvormingsproces.
 
 \begin{table}[H]
