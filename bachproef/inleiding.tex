@@ -5,26 +5,26 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-Apvine, een toonaangevend IT-consultancybedrijf, maakt intensief gebruik van low-code platformen zoals Mendix om zakelijke applicaties snel en efficiënt te ontwikkelen. Deze aanpak verlaagt de ontwikkeltijd en biedt een flexibele oplossing voor veel projecten. Echter, wanneer applicaties complexe bedrijfslogica, real-time gegevensverwerking of integraties met legacy-systemen vereisen, kunnen de beperkingen van low-code ontwikkeling zichtbaar worden.
+Apvine, een toonaangevend IT-consultancybedrijf, maakt intensief gebruik van het low-code platform Mendix om zakelijke applicaties snel en efficiënt te ontwikkelen. Deze aanpak verlaagt de ontwikkeltijd en biedt een flexibele oplossing voor veel projecten. Alleen wanneer applicaties complexe bedrijfslogica, real-time gegevensverwerking of integraties met legacy-systemen vereisen, kunnen de beperkingen van low-code ontwikkeling zichtbaar worden.
 
-In zulke gevallen kan een hybride of high-code aanpak nodig zijn, maar zonder een duidelijk beslissingskader is het lastig om te bepalen wanneer deze overstap gemaakt moet worden. Dit gebrek aan richtlijnen kan leiden tot projectvertragingen, hogere kosten en onverwachte aanpassingen, wat een negatieve impact heeft op zowel Apvine als haar klanten.
+In zulke gevallen kan een hybride of high-code aanpak nodig zijn, maar zonder een duidelijk beslissingskader is het lastig om te bepalen wanneer deze overstap gemaakt moet worden. Dit gebrek aan richtlijnen kan leiden tot projectvertragingen, hogere kosten en onverwachte aanpassingen. Dit kan een negatieve impact hebben op zowel apvine als haar klanten.
 
 Dit onderzoek richt zich op het vaststellen van de grenzen van Mendix en het ontwikkelen van een gestructureerd beslissingskader, zodat projectmanagers en softwarearchitecten beter onderbouwde keuzes kunnen maken tussen low-code en high-code ontwikkeling.
 
 \section{Kadering begrippen}
 Voorafgaand aan de uitwerking van deze bachelorproef is het belangrijk om enkele kernbegrippen te kaderen. Door vooraf duidelijk te omschrijven wat we precies verstaan onder termen zoals low-code en high-code, zorgen we ervoor dat alle lezers met dezelfde basiskennis starten. Dit voorkomt verwarring en maakt de verdere analyse en besluitvorming beter te volgen en te interpreteren.
 \subsection{High-code}
-High-code, ook wel traditionele softwareontwikkeling genoemd, houdt in dat applicaties volledig worden geprogrammeerd met behulp van programmeertalen zoals Java, C\#, of Python. Deze aanpak biedt maximale controle, technische diepgang en flexibiliteit, en maakt het mogelijk om robuuste, schaalbare en volledig op maat gemaakte oplossingen te bouwen. High-code is bij uitstek geschikt voor toepassingen met complexe bedrijfslogica, uitgebreide integraties, hoge prestaties of specifieke beveiligingseisen. Hoewel het meer tijd en gespecialiseerde kennis vereist dan low-code, levert het doorgaans beter onderhoudbare en diep geïntegreerde software op
+High-code, ook wel traditionele softwareontwikkeling genoemd, houdt in dat applicaties volledig worden geprogrammeerd met behulp van programmeertalen zoals Java, C\#, Python, JavaScript, ... . Deze aanpak biedt maximale controle, technische diepgang en flexibiliteit. Dit maakt het mogelijk om robuuste, schaalbare en volledig op maat gemaakte oplossingen te bouwen. High-code is bij uitstek geschikt voor toepassingen met complexe bedrijfslogica, uitgebreide integraties, hoge prestaties of specifieke beveiligingseisen. Hoewel het meer tijd en gespecialiseerde kennis vereist dan low-code, levert het doorgaans beter onderhoudbare en diep geïntegreerde software op
 \textcite{Northcutt2023}.
 \subsection{Low-code}
-Low-code is een methode van softwareontwikkeling waarbij applicaties voornamelijk worden gebouwd via visuele interfaces, met gebruik van drag-and-drop componenten en vooraf geconfigureerde modules. Dit stelt gebruikers in staat om snel functionerende applicaties te creëren met minimale handmatige codering. Low-code platforms zijn ontworpen om de ontwikkelsnelheid te verhogen en softwareontwikkeling toegankelijk te maken voor een breder publiek, inclusief business users zonder diepgaande programmeerkennis \autocite{Bunce2024}. Belangrijk om te vermelden is dat deze platforms doorgaans de mogelijkheid bieden om waar nodig aanvullende code (high-code) toe te voegen. Hierdoor kunnen ontwikkelaars de standaardcomponenten uitbreiden of aanpassen aan complexe vereisten, wat de flexibiliteit van low-code aanzienlijk vergroot \autocite{Northcutt2023}.
+Low-code is een methode van softwareontwikkeling waarbij applicaties voornamelijk worden gebouwd via visuele interfaces, met gebruik van drag-and-drop componenten en vooraf geconfigureerde modules. Dit stelt de gebruikers in staat om snel functionerende applicaties te creëren met minimale handmatige codering. Low-code platforms zijn ontworpen om de ontwikkelsnelheid te verhogen en softwareontwikkeling toegankelijk te maken voor een breder publiek, inclusief business users zonder diepgaande programmeerkennis \autocite{Bunce2024}. Belangrijk om te vermelden is dat deze platforms doorgaans de mogelijkheid bieden om waar nodig aanvullende code (high-code) toe te voegen. Hierdoor kunnen ontwikkelaars de standaardcomponenten uitbreiden of aanpassen aan complexe vereisten, wat de flexibiliteit van low-code aanzienlijk vergroot \autocite{Northcutt2023}.
 
 \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
 \label{sec:probleemstelling}
 
-De groeiende populariteit van low-code platformen zoals Mendix biedt bedrijven de mogelijkheid om sneller en efficiënter zakelijke applicaties te ontwikkelen. Deze aanpak verlaagt de technische drempel en versnelt het ontwikkelproces. Toch stuiten bedrijven zoals Apvine op beperkingen van deze technologie wanneer ze complexe bedrijfslogica, real-time gegevensverwerking en integraties met legacy-systemen moeten implementeren.
+De groeiende populariteit van low-code platformen zoals Mendix biedt bedrijven de mogelijkheid om sneller en efficiënter zakelijke applicaties te ontwikkelen. Deze aanpak verlaagt de technische drempel en versnelt het ontwikkelproces. Toch stuiten bedrijven zoals apvine op beperkingen van deze technologie wanneer ze complexe bedrijfslogica, real-time gegevensverwerking en integraties met legacy-systemen moeten implementeren.
 
-Er ontbreekt momenteel een duidelijk beslissingskader binnen Apvine om te bepalen wanneer low-code een geschikte oplossing is en wanneer high-code ontwikkeling noodzakelijk wordt. Dit leidt tot projectvertragingen, hogere kosten en mogelijke klantontevredenheid door onverwachte aanpassingen in de ontwikkelingsstrategie.
+Er ontbreekt momenteel een duidelijk beslissingskader binnen apvine en andere bedrijven om te bepalen wanneer low-code een geschikte oplossing is en wanneer high-code ontwikkeling noodzakelijk wordt. Dit leidt tot projectvertragingen, hogere kosten en mogelijke klantontevredenheid door onverwachte aanpassingen in de ontwikkelingsstrategie.
 
 Dit onderzoek richt zich op het identificeren van de grenzen van Mendix en het formuleren van een gestructureerd beslissingskader. Hiermee kunnen projectmanagers en softwarearchitecten beter onderbouwde keuzes maken over de inzet van low-code en high-code technologieën in verschillende scenario's.
 
@@ -56,7 +56,7 @@ Door deze vragen te beantwoorden, beoogt dit onderzoek een onderbouwd beslissing
 
 \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
 \label{sec:onderzoeksdoelstelling}
-Het primaire doel van dit onderzoek is het ontwikkelen van een uitgebreid beslissingskader dat projectmanagers en softwarearchitecten van Apvine in staat stelt om gefundeerde keuzes te maken tussen low-code (Mendix) en high-code ontwikkelingsmethoden. Dit kader zal worden ontworpen om de technische beperkingen van Mendix te identificeren en te bepalen wanneer de overstap naar high-code oplossingen noodzakelijk wordt.
+Het primaire doel van dit onderzoek is het ontwikkelen van een uitgebreid beslissingskader dat projectmanagers en softwarearchitecten van apvine en andere bedrijven in staat stelt om gefundeerde keuzes te maken tussen low-code (Mendix) en high-code ontwikkelingsmethoden. Dit kader zal worden ontworpen om de technische beperkingen van Mendix te identificeren en te bepalen wanneer de overstap naar high-code oplossingen noodzakelijk wordt.
 \\
 \\
 De concrete resultaten van dit onderzoek zullen omvatten:
@@ -64,7 +64,6 @@ De concrete resultaten van dit onderzoek zullen omvatten:
 \item Een gedetailleerde analyse van de beperkingen van Mendix bij het verwerken van complexe bedrijfslogica, real-time gegevensverwerking en integraties met legacy-systemen
 \item Een gestructureerd beslissingskader met duidelijke criteria voor het bepalen van de optimale ontwikkelingsaanpak
 \item Een reeks praktische richtlijnen en beoordelingsinstrumenten die projectmanagers kunnen toepassen in de beginfase van projectplanning
-\item Casestudies van eerdere Apvine-projecten, die succesvolle en uitdagende implementaties van low-code oplossingen illustreren
 \item Aanbevelingen voor het implementeren van hybride benaderingen wanneer dit passend is
 \end{itemize}
 
@@ -72,13 +71,13 @@ De concrete resultaten van dit onderzoek zullen omvatten:
 Het succes van dit onderzoek zal worden gemeten aan de hand van:
 \begin{itemize}
 \item De toepasbaarheid van het kader op verschillende projecttypen en klantvereisten
-\item Validatie door technische experts en projectmanagers van Apvine met betrekking tot de praktische bruikbaarheid van het kader
+\item Validatie door technische experts en projectmanagers van apvine met betrekking tot de praktische bruikbaarheid van het kader
 \item Het vermogen om potentiële technische knelpunten te voorspellen voordat ze impact hebben op projectplanningen of budgetten
 \item Duidelijke documentatie van het besluitvormingsproces die met klanten kan worden gedeeld om de transparantie te verbeteren
 \end{itemize}
 
 
-Het eindresultaat zal een uitgebreid rapport zijn met het beslissingskader, vergezeld van praktische hulpmiddelen (zoals beoordelingschecklists en beslisbomen) die direct kunnen worden geïntegreerd in de projectmethodologie van Apvine.
+Het eindresultaat zal een uitgebreid rapport zijn met het beslissingskader, vergezeld van praktische hulpmiddelen die direct kunnen worden geïntegreerd in de projectmethodologie van apvine en eventueel andere bedrijven.
 
 \section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
 \label{sec:opzet-bachelorproef}
@@ -93,7 +92,6 @@ In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand v
 
 In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
 
 In Hoofdstuk~\ref{ch:gangVanZaken} wordt een overzicht van de huidige situatie, waarbij de bestaande processen en werkwijzen worden geanalyseerd. Er wordt gekeken naar de effectiviteit van deze gang van zaken en eventuele knelpunten die zich voordoen.
 
