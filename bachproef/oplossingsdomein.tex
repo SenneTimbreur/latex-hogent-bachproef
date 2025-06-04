@@ -51,7 +51,9 @@ Academisch onderzoek benadrukt zowel de voordelen als de uitdagingen van low-cod
 
 
 \section{Praktisch onderzoek}
-In dit praktisch onderzoek worden twee applicaties met elkaar vergeleken: één ontwikkeld met het low-code platform Mendix en één ontwikkeld met JavaScript en React. 
+In dit praktisch onderzoek worden twee applicaties met elkaar vergeleken: één ontwikkeld met het low-code platform Mendix (Figuur~\ref{fig:homepage-mendix}) en één ontwikkeld met JavaScript en React (Figuur~\ref{fig:homepage-JavaScript}). Beide applicaties implementeren dezelfde functionaliteit: het beheren van een lijst met trainingen. Elke training bestaat uit drie attributen: naam, thema en een leeftijdsgroep. Gebruikers kunnen trainingen toevoegen en verwijderen via een eenvoudige gebruikersinterface.
+
+De keuze om JavaScript in combinatie met React te gebruiken voor de tweede applicatie is bewust gemaakt. React biedt de mogelijkheid om zowel de logica als de visualisatie van de applicatie in één geïntegreerd framework te beheren. Dit zorgt voor een gestroomlijnde ontwikkelingservaring.
 
 \begin{figure}[H]
     \centering
@@ -202,6 +204,7 @@ Bij de testen werd specifiek gekeken naar het toevoegen van een nieuw item binne
 
 \begin{figure}[H]
     \centering
+    \captionsetup{justification=centering}
     \includegraphics[width=0.8\textwidth]{Test JS reactietijd Toevoegen.png}
     \caption[Testresultaten toevoegen object in JavaScript/React]{\label{fig:reactietijd-JavaScript} Testresultaten toevoegen object in JavaScript/React }
 \end{figure}
@@ -209,25 +212,25 @@ Bij de testen werd specifiek gekeken naar het toevoegen van een nieuw item binne
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{ |p{5cm}|p{3cm}|p{6cm}|}
+    \begin{tabular}{ |p{4cm}|p{3cm}|p{6cm}|p{1cm}|}
         \hline
-        \textbf{Metriek} & \textbf{Tijd/Duur} & \textbf{Beschrijving}\\
+        \textbf{Metriek} & \textbf{Tijd/Duur} & \textbf{Beschrijving} & \textbf{Fase}\\
         \hline
-        \textbf{Start operatie/ Event Click}  & $\sim$1.750 ms & Start van gebruikersinteractie \\
-        \hline
-        \textbf{\gls{DOM} Activate} & $\sim$1.752 ms & Verwerking van DOM-event \\
-        \hline
-        \textbf{Event Submit}  & $\sim$1.754 ms & Formulier wordt verstuurd \\
-        \hline
-        \textbf{Microtasks}  & 1.754 – 1.756 ms & Uitvoering van JavaScript-taken \\
+        \textbf{Start operatie/ Event Click}  & $\sim$1.750 ms & Start van gebruikersinteractie & 1\\
+        \cline{1-3}
+        \textbf{\gls{DOM} Activate} & $\sim$1.752 ms & Verwerking van DOM-event &  \\
+        \cline{1-3}
+        \textbf{Event Submit}  & $\sim$1.754 ms & Formulier wordt verstuurd &  \\
+        \cline{1-3}
+        \textbf{Microtasks}  & 1.754 – 1.756 ms & Uitvoering van JavaScript-taken &  \\
         \hline                       
-        \textbf{\gls{XHR} Load}  & 1.790 – 1.820 ms & Communicatie met de server  \\
+        \textbf{\gls{XHR} Load}  & 1.790 – 1.820 ms & Communicatie met de server & 2 \\
         \hline
-        \textbf{Function Calls}  & 1.820 – 1.840 ms & Verwerking van de serverrespons \\
+        \textbf{Function Calls}  & 1.820 – 1.840 ms & Verwerking van de serverrespons & 3 \\
         \hline
-        \textbf{GPU Rendering}  & $\sim$1.850 ms & 	Visuele weergave (rendering) \\
+        \textbf{GPU Rendering}  & $\sim$1.850 ms & 	Visuele weergave (rendering) & 4 \\
         \hline
-        \textbf{Reactietijd}  & ≈ 100 ms & 	Tijdsduur van klik tot weergave \\
+        \textbf{Reactietijd}  & ≈ 100 ms & 	Tijdsduur van klik tot weergave & 1,2,3,4 \\
         \hline
     \end{tabular}
     \caption[\centering Testresultaten reactietijd JavaScript/React]{\label{tab:Testresultaten JS reactietijd}Testresultaten reactietijd JavaScript/React}
@@ -235,17 +238,17 @@ Bij de testen werd specifiek gekeken naar het toevoegen van een nieuw item binne
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{ |p{5cm}|p{3cm}|p{6cm}|}
+    \begin{tabular}{ |p{5,5cm}|p{3cm}|p{6cm}|}
         \hline
         \textbf{Fase} & \textbf{Duur} & \textbf{Activiteit}\\
         \hline
-        \textbf{Eventverwerking}  & $\sim$4 ms & Van klik tot submit \\
+        \textbf{1. Eventverwerking}  & $\sim$4 ms & Van klik tot submit \\
         \hline
-        \textbf{\gls{XHR}-verzoek} & $\sim$30 ms & Verzoek naar en antwoord van de server \\
+        \textbf{2. \gls{XHR}-verzoek} & $\sim$30 ms & Verzoek naar en antwoord van de server \\
         \hline
-        \textbf{Responsverwerking}  & $\sim$20 ms & Verwerking van ontvangen data \\
+        \textbf{3. Responsverwerking}  & $\sim$20 ms & Verwerking van ontvangen data \\
         \hline
-        \textbf{Visuele rendering}  & $\sim$46 ms & \gls{UI} wordt bijgewerkt op het scherm \\
+        \textbf{4. Visuele rendering}  & $\sim$46 ms & \gls{UI} wordt bijgewerkt op het scherm \\
         \hline                       
 
     \end{tabular}
@@ -263,32 +266,33 @@ Bij de testen werd specifiek gekeken naar het toevoegen van een nieuw item binne
 
 \begin{figure}[H]
     \centering
+    \captionsetup{justification=centering}
     \includegraphics[width=0.8\textwidth]{Test Mendix reactietijd Toevoegen.png}
     \caption[Testresultaten toevoegen object in Mendix]{\label{fig:reactietijd-Mendix} Testresultaten toevoegen object in Mendix}
 \end{figure}
 
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \begin{tabular}{ |p{5cm}|p{3cm}|p{6cm}|}
+    \begin{tabular}{|p{4cm}|p{3cm}|p{6cm}|p{1cm}|}
         \hline
-        \textbf{Metriek} & \textbf{Tijd/Duur} & \textbf{Beschrijving}\\
+        \textbf{Metriek}   & \textbf{Tijd/Duur} & \textbf{Beschrijving} & \textbf{Fase} \\
         \hline
-        \textbf{Start operatie}  & $\sim$1.300 ms & Start van gebruikersinteractie \\
+        \textbf{Start operatie} & $\sim$1.300 ms & Start van gebruikersinteractie & 1 \\
+        \cline{1-3}
+        \textbf{Animation/Render} & 1.300 - 1.320 ms & \gls{UI} animaties enrendering & \\
         \hline
-        \textbf{Animation/Render} & 1.300 - 1.320 ms & \gls{UI} animaties en rendering \\
+        \textbf{Run Tasks} & 1.320 - 1.340 ms & Asynchrone task verwerking & 2 \\
         \hline
-        \textbf{Run Tasks}  & 1.320 - 1.340 ms & Asynchrone task verwerking \\
-        \hline
-        \textbf{Function Calls}  & 1.340 - 1.380 ms & Core applicatie logica \\
+        \textbf{Function Calls} & 1.340 - 1.380 ms & Core applicatie logica & 3 \\
         \hline                       
-        \textbf{Major \gls{GC}}  & 1.790 – 1.820 ms & Communicatie met de server  \\
+        \textbf{Major \gls{GC}} & 1.790 – 1.820 ms & Communicatie met de server & 4 \\
+        \cline{1-3}
+        \textbf{Function Calls} & 	$\sim$1.440 ms & Garbage collection & \\
+        \cline{1-3}
+        \textbf{Operatie Compleet} & $\sim$1.470 ms & 	Item volledig toegevoegd & \\
         \hline
-        \textbf{Function Calls}  & 	$\sim$1.440 ms & Garbage collection \\
-        \hline
-        \textbf{Operatie Compleet}  & $\sim$1.470 ms & 	Item volledig toegevoegd \\
-        \hline
-        \textbf{Totale reactietijd}  & ≈ 170 ms & Tijdsduur van klik tot weergave \\
+        \textbf{Totale reactietijd} &  ≈ 170 ms & Tijdsduur van klik tot weergave & 1,2,3,4 \\
         \hline
     \end{tabular}
     \caption[\centering Testresultaten reactietijd Mendix]{\label{tab:Testresultaten Mendix reactietijd}Testresultaten reactietijd Mendix}
@@ -296,17 +300,17 @@ Bij de testen werd specifiek gekeken naar het toevoegen van een nieuw item binne
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{ |p{5cm}|p{3cm}|p{6cm}|}
+    \begin{tabular}{|p{5,5cm}|p{3cm}|p{6cm}|}
         \hline
         \textbf{Fase} & \textbf{Duur} & \textbf{Activiteit}\\
         \hline
-        \textbf{Initial Animation}  & $\sim$20 ms & \gls{UI} feedback start \\
+        \textbf{1. Initial Animation}  & $\sim$20 ms & \gls{UI} feedback start \\
         \hline
-        \textbf{Task Processing} & $\sim$20 ms & Asynchrone verwerking \\
+        \textbf{2. Task Processing} & $\sim$20 ms & Asynchrone verwerking \\
         \hline
-        \textbf{Function Execution}  & $\sim$40 ms & Business logica \\
+        \textbf{3. Function Execution}  & $\sim$40 ms & Business logica \\
         \hline
-        \textbf{Rendering and \gls{GC}}  & $\sim$90 ms & \gls{UI} updates + cleanup \\
+        \textbf{4. Rendering and \gls{GC}}  & $\sim$90 ms & \gls{UI} updates + cleanup \\
         \hline                       
         
     \end{tabular}
@@ -327,7 +331,7 @@ Hoewel JavaScript met 100 ms iets sneller is dan Mendix met 170 ms van start tot
 Om de schaalbaarheid en robuustheid van de webapplicaties te evalueren onder verschillende belastingniveaus, werden ook loadtesten uitgevoerd. Deze testen simuleren een toenemend aantal gelijktijdige gebruikers om te bepalen hoe de applicaties presteren onder stress en om eventuele knelpunten te identificeren.
 
 \subsubsection{Resultaten}
-De loadtesten zijn uitgevoerd door het simuleren van HTTP-verzoeken voor een oplopend aantal gebruikers (10, 100, 250, 500, 1000, 2500 gebruikers) voor zowel de Mendix- als de JavaScript/React-applicatie. Hierbij is gebruikgemaakt van Apache JMeter, een veelgebruikte tool voor het uitvoeren van prestatietests, waarmee realistische gebruikersinteracties kunnen worden nagebootst. De belangrijkste metingen die zijn geanalyseerd, omvatten de gemiddelde reactietijd, de doorvoer (throughput) en het foutpercentage (Error \%).
+De loadtesten zijn uitgevoerd door het simuleren van HTTP-verzoeken voor een oplopend aantal gebruikers (10, 100, 250, 500, 1000, 2500 gebruikers) voor zowel de Mendix- als de JavaScript/React-applicatie. Hierbij is gebruikgemaakt van Apache JMeter, een veelgebruikte tool voor het uitvoeren van prestatietests, waarmee realistische gebruikersinteracties kunnen worden nagebootst. De belangrijkste metingen die zijn geanalyseerd, omvatten de gemiddelde reactietijd, het aantal requests per seconde (throughput) en het foutpercentage (Error \%).
 
 \paragraph{JavaScript/React resultaten load testen}
 
@@ -430,43 +434,42 @@ Om de aanpasbaarheid en herbruikbaarheid van componenten te evalueren, is bij be
 In JavaScript/React duurde het toevoegen van een vergelijkbare zoekfunctie ongeveer 15 minuten, waarbij logica handmatig moest worden geschreven, de zoekinput geïntegreerd diende te worden in de UI, en filtering op de dataset geïmplementeerd werd.
 
 \begin{listing}[H]
-        export default function TrainingsTable({ trainingen, onDelete }) {
-            const [searchTerm, setSearchTerm] = useState("");
-            // Filter trainingen op basis van zoekterm
-            const filteredTrainingen = trainingen.filter((training) =>
-            training.naam.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-            return (
-            <Box>
-            {/* Zoekbalk */}
-                <Input
-                placeholder="Zoek op naam..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                mb={4}
-                maxWidth="300px"
-                />
-            {/* Tabel */}
-                <Table variant="striped" colorScheme="teal" size="sm">
-                    <Thead>
-                        <Tr>
-                            <Th>Naam</Th>
-                            <Th>Thema</Th>
-                            <Th>Leeftijdsgroep</Th>
-                            <Th></Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        {filteredTrainingen.length > 0 ? (
-                         filteredTrainingen.map((training) => (
-                            <Training key={training.id} onDelete={onDelete} {...training} />
-                            ))
-                        )}
-                    </Tbody>
-                </Table>
-            </Box>
-            );
-        }   
+    \begin{minted}{JavaScript}
+export default function TrainingsTable({ trainingen, onDelete }) {
+ const [searchTerm, setSearchTerm] = useState("");
+ // Filter trainingen op basis van zoekterm
+ const filteredTrainingen = trainingen.filter((training) =>
+   training.naam.toLowerCase().includes(searchTerm.toLowerCase())
+ );
+ return (
+  <Box>
+  {/* Zoekbalk */}
+  <Input
+   placeholder="Zoek op naam..."
+   value={searchTerm}
+   onChange={(e) => setSearchTerm(e.target.value)}
+   mb={4}
+   maxWidth="300px"
+  />
+  {/* Tabel */}
+  <Table variant="striped" colorScheme="teal" size="sm">
+    <Thead>
+      <Tr>
+        <Th>Naam</Th>
+        <Th>Thema</Th>
+        <Th>Leeftijdsgroep</Th>
+        <Th></Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      {filteredTrainingen.length > 0 ? (filteredTrainingen.map((training) => (
+        <Training key={training.id} onDelete={onDelete} {...training} />)))}
+    </Tbody>
+  </Table>
+ </Box>
+ );
+}   
+    \end{minted}
     \captionsetup{justification=centering}
     \caption{Trainingstabel met zoekfunctie op naam}
     \label{lst:pipeline-clone}
@@ -495,7 +498,7 @@ Mendix is ontworpen om eenvoudig te koppelen met zowel moderne als legacy system
     \item \textbf{SOAP Webservices}: ondersteuning voor oudere protocollen blijft behouden, wat belangrijk is voor bedrijven met legacy infrastructuren.
     \item \textbf{GraphQL}: niet native ondersteund, maar via extensies of community-modules kunnen GraphQL-endpoints alsnog worden aangesproken.
     \item \textbf{OData Services}: Mendix biedt OData-integraties voor onder meer BI-tools zoals Power BI.
-    \item \textbf{JDBC-databaseconnecties}: directe verbinding met relationele databases zoals SQL Server, MySQL, PostgreSQL en Oracle.
+    \item \textbf{Databaseconnecties}: directe verbinding met relationele databases zoals SQL Server, MySQL, PostgreSQL en Oracle.
 \end{itemize}
 
 Daarnaast is er toegang tot Mendix Connect en de Mendix Marketplace, waar herbruikbare connectors beschikbaar zijn voor populaire systemen zoals SAP, Salesforce, Kafka en meer. Dit maakt het voor ontwikkelaars mogelijk om snel integraties op te zetten zonder complexe code.
@@ -507,7 +510,7 @@ JavaScript/React biedt in essentie volledige vrijheid voor integratie, maar dit 
     \item \textbf{REST en GraphQL}: beide worden uitstekend ondersteund via moderne bibliotheken zoals Axios, Fetch API, Apollo Client of Relay.
     \item \textbf{WebSocket en realtime communicatie}: makkelijk op te zetten met bibliotheken zoals Socket.IO.
     \item \textbf{SOAP}: mogelijk, maar vereist aparte libraries (zoals soap in Node.js), aangezien SOAP minder gangbaar is in moderne JavaScript-ecosystemen.
-    \item \textbf{Directe databaseverbindingen}: in een typische React frontend niet van toepassing, maar in combinatie met een Node.js backend kunnen via ORM's (zoals Sequelize, Prisma) databases als MySQL, PostgreSQL of MongoDB worden aangesproken.
+    \item \textbf{Databaseconnecties}: in een typische React frontend niet van toepassing, maar in combinatie met een Node.js backend kunnen via ORM's (zoals Sequelize, Prisma) databases als MySQL, PostgreSQL of MongoDB worden aangesproken.
 \end{itemize}
 
 JavaScript/React biedt maximale controle, flexibiliteit en toegang tot een breed scala aan open-source libraries en SDK’s. Wel vraagt het opzetten van integraties meer technische kennis en aandacht voor zaken als foutafhandeling, authenticatie (OAuth, JWT) en datastructurering.
@@ -603,17 +606,17 @@ Samengevat is Mendix ideaal voor projecten waarbij snelheid, standaardisatie en 
 Op basis van mijn ervaring kan ik bevestigen dat low-code, zoals Mendix, bijzonder krachtig is voor het snel opzetten van generieke applicaties met standaardfunctionaliteiten. Het stelt je in staat om in korte tijd werkende oplossingen te bouwen, wat vooral in iteratieve of proof-of-concept contexten een grote meerwaarde biedt. Tegelijk merk ik dat zodra een project meer ‘custom’ noden heeft, zoals complexe bedrijfslogica of verfijnde integraties, de grenzen van het platform sneller voelbaar worden. In die gevallen is het een duidelijke troef om een high-code achtergrond te hebben: je begrijpt beter wat er onder de motorkap gebeurt, kunt gerichter zoeken naar workarounds en neemt bewuster beslissingen over de architectuur van je oplossing. Bovendien zie ik dat een traditionele programmeerachtergrond ook de leesbaarheid en structuur van je low-code logica ten goede komt. Je denkt in patronen, zorgt voor herbruikbaarheid en hanteert best practices die niet vanzelfsprekend zijn in een puur visuele ontwikkelomgeving.
 
 \subsection{Reflectie op ervaringen van experts}
-Er zijn ook enkele ontwikkelaars met een klassieke high-code achtergrond die inmiddels volledig actief zijn binnen low-code projecten, met name op het Mendix-platform. Ik sprak met hen over hun ervaringen en vatte hun bevindingen samen. 
-Ze benadrukken dat low-code bijzonder krachtig is voor het snel ontwikkelen van generieke applicaties met standaardfunctionaliteiten. Dit maakt het ideaal voor situaties waarin snelheid en iteratieve ontwikkeling belangrijk zijn. Daarnaast wordt low-code vaak gepositioneerd als een brug tussen IT en business, doordat ook gebruikers zonder programmeerervaring relatief snel aan de slag kunnen. In de praktijk leidde dit er echter soms toe dat businessgebruikers eigen applicaties opstartten die later door ervaren ontwikkelaars moesten worden overgenomen. Deze overdracht bleek niet altijd evident: de onderliggende logica bleek vaak moeilijk leesbaar en voldeed zelden aan gangbare ontwikkelstandaarden of best practices, wat extra werk met zich meebracht om de applicatie te stabiliseren en verder te ontwikkelen.
+Er zijn ook enkele ontwikkelaars met een klassieke high-code achtergrond die inmiddels volledig actief zijn binnen low-code projecten, met name op het Mendix-platform. Ik sprak met hun development manager over hun ervaringen en vatte hun bevindingen samen. 
+De geïnterviewde benadrukt dat low-code bijzonder krachtig is voor het snel ontwikkelen van generieke applicaties met standaardfunctionaliteiten (L. Debusscher, persoonlijke communicatie, 28 mei 2025). Dit maakt het ideaal voor situaties waarin snelheid en iteratieve ontwikkeling belangrijk zijn. Daarnaast wordt low-code vaak gepositioneerd als een brug tussen IT en business, doordat ook gebruikers zonder programmeerervaring relatief snel aan de slag kunnen. In de praktijk leidde dit er echter soms toe dat businessgebruikers eigen applicaties opstartten die later door ervaren ontwikkelaars moesten worden overgenomen. Een geïnterviewde gaf dan ook aan: \textit{“De overdracht bleek niet altijd evident: de onderliggende logica was vaak moeilijk leesbaar en voldeed zelden aan gangbare ontwikkelstandaarden of best practices, wat extra werk met zich meebracht om de applicatie te stabiliseren en verder te ontwikkelen.”} (L. Debusscher, persoonlijke communicatie, 28 mei 2025). 
 
-Wat betreft de ontwikkelervaring binnen Mendix, werd er gemengd gereageerd op de version control-functionaliteit. Hoewel het systeem in principe krachtig is en goed integreert met teamwerk, kunnen foutmeldingen en merge-conflicten soms moeilijk te doorgronden zijn. Wanneer alles echter correct functioneert, biedt het versiebeheer een betrouwbare en efficiënte manier van samenwerken. De integratie van agile werkmethodieken binnen het Mendix-platform werd unaniem positief beoordeeld: user stories, sprints en voortgang kunnen rechtstreeks via de projectpagina opgevolgd en beheerd worden, wat de samenwerking tussen ontwikkelaars en stakeholders vergemakkelijkt.
+Wat betreft de ontwikkelervaring binnen Mendix, werd er gemengd gereageerd op de version control-functionaliteit (L. Debusscher, persoonlijke communicatie, 28 mei 2025). Hoewel het systeem in principe krachtig is en goed integreert met teamwerk, kunnen foutmeldingen en merge-conflicten soms moeilijk te doorgronden zijn. Wanneer alles echter correct functioneert, biedt het versiebeheer een betrouwbare en efficiënte manier van samenwerken. De integratie van agile werkmethodieken binnen het Mendix-platform werd unaniem positief beoordeeld: user stories, sprints en voortgang kunnen rechtstreeks via de projectpagina opgevolgd en beheerd worden, wat de samenwerking tussen ontwikkelaars en stakeholders vergemakkelijkt.
 
-Ook het gebruik van herbruikbare modules uit de Mendix Marketplace werd als een groot voordeel genoemd. Het toevoegen van bestaande componenten versnelt de ontwikkeling aanzienlijk en voorkomt dat het wiel telkens opnieuw moet worden uitgevonden. Tegelijk wordt opgemerkt dat een groot aantal van deze modules weinig tot geen documentatie bevat, waardoor het tijd kost om hun werking te doorgronden of aan te passen aan specifieke projectbehoeften. 
+Ook het gebruik van herbruikbare modules uit de Mendix Marketplace werd als een groot voordeel genoemd (L. Debusscher, persoonlijke communicatie, 28 mei 2025). Het toevoegen van bestaande componenten versnelt de ontwikkeling aanzienlijk en voorkomt dat het wiel telkens opnieuw moet worden uitgevonden. Tegelijk wordt opgemerkt dat een groot aantal van deze modules weinig tot geen documentatie bevat, waardoor het tijd kost om hun werking te doorgronden of aan te passen aan specifieke projectbehoeften. 
 
-Over het geheel genomen beschouwen deze ontwikkelaars Mendix als een toegankelijke en efficiënte ontwikkelomgeving, die eenvoudig aanvoelt in de basis, maar bij complexere noden ook de nodige technische diepgang vereist. Hun ervaring met high-code vormt daarbij een duidelijke meerwaarde: het helpt hen om concepten sneller te begrijpen, kwalitatieve oplossingen te bouwen en de leesbaarheid en onderhoudbaarheid van hun low-code toepassingen te verbeteren.
+Over het geheel genomen beschouwen deze ontwikkelaars Mendix als een toegankelijke en efficiënte ontwikkelomgeving, die eenvoudig aanvoelt in de basis, maar bij complexere noden ook de nodige technische diepgang vereist. Een geïnterviewde merkte dan ook op: \textit{“Hun ervaring met high-code vormt daarbij een duidelijke meerwaarde: het helpt hen om concepten sneller te begrijpen, kwalitatieve oplossingen te bouwen en de leesbaarheid en onderhoudbaarheid van hun low-code toepassingen te verbeteren.”} (L. Debusscher, persoonlijke communicatie, 28 mei 2025).
 
 \section{Evaluatie van Mendix-uitbreidingen}
-Op basis van gesprekken met ervaren ontwikkelaars die dagelijks met Mendix werken, blijkt dat het gebruik van standaard Marketplace-modules doorgaans als efficiënt en tijdbesparend wordt ervaren, vooral bij generieke functionaliteiten. Deze modules kunnen snel geïntegreerd worden, wat de implementatietijd aanzienlijk verkort. Toch werd ook opgemerkt dat veel van deze modules onvoldoende of zelfs geheel geen documentatie bevatten. Dit gebrek aan transparantie leidt tot vertragingen tijdens implementatie en beperkt de flexibiliteit wanneer aanpassingen nodig zijn. In zulke gevallen biedt custom ontwikkeling vaak meer controle en beter afgestemde oplossingen, hoewel dit uiteraard gepaard gaat met een langere ontwikkeltijd en hogere initiële kosten.
+Op basis van het gesprekken met een development manager die dagelijks met Mendix werkt, blijkt dat het gebruik van standaard Marketplace-modules doorgaans als efficiënt en tijdbesparend wordt ervaren, vooral bij generieke functionaliteiten (L. Debusscher, persoonlijke communicatie, 28 mei 2025). Deze modules kunnen snel geïntegreerd worden, wat de implementatietijd aanzienlijk verkort. Toch werd ook opgemerkt dat veel van deze modules onvoldoende of zelfs geheel geen documentatie bevatten. Dit gebrek aan transparantie leidt tot vertragingen tijdens implementatie en beperkt de flexibiliteit wanneer aanpassingen nodig zijn. In zulke gevallen biedt custom ontwikkeling vaak meer controle en beter afgestemde oplossingen, hoewel dit uiteraard gepaard gaat met een langere ontwikkeltijd en hogere initiële kosten.
 
 Java-uitbreidingen binnen Mendix worden door ontwikkelaars met een high-code achtergrond beschouwd als waardevolle tools om de beperkingen van het platform te omzeilen, bijvoorbeeld bij complexe logica of integraties met externe systemen. Deze uitbreidingen verhogen echter ook de technische complexiteit van het project en kunnen de onderhoudbaarheid op lange termijn negatief beïnvloeden, zeker wanneer ze niet goed gedocumenteerd zijn of slechts door een beperkte groep binnen het team begrepen worden.
 
@@ -622,7 +625,9 @@ Wat betreft de kosten-batenverhouding, geven ontwikkelaars aan dat low-code in c
 Tot slot werd ook het integreren van externe systemen als een uitdaging benoemd. Hoewel Mendix hier voldoende ondersteuning voor biedt, vergt het combineren van low-code met externe services een goed begrip van beide kanten. Een technische achtergrond blijkt in die context bijzonder waardevol, zowel voor het begrijpen van de externe API’s als voor het bouwen van robuuste, onderhoudbare koppelingen binnen het platform. Al met al tonen deze bevindingen aan dat een doordachte strategie, met oog voor schaalbaarheid en onderhoud, essentieel is bij het uitbreiden van Mendix-toepassingen.
 
 \section{Ontwikkeling beslissingskader}
-Voor een snelle vergelijking tussen Mendix en traditionele ontwikkeling is in Tabel~\ref{tab:beslissingsmatrix} een scorematrix opgenomen. Per dimensie is een score van 1 tot 5 toegekend, waarbij 5 duidt op een sterke geschiktheid van de technologie in die context. Deze matrix ondersteunt de eerste oriëntatie in het besluitvormingsproces.
+Voor een snelle vergelijking tussen Mendix en traditionele ontwikkeling is in Tabel~\ref{tab:beslissingsmatrix} een scorematrix opgenomen. Per dimensie is een score van 1 tot 5 toegekend. De betekenis van score 1 en 5 wordt per dimensie toegelicht in een aparte kolom. 
+
+De matrix is gebaseerd op de bevindingen uit de hierboven besproken analyses en interviews, en dient als leidraad in het besluitvormingsproces. Ze ondersteunt een eerste oriëntatie en helpt om op gestructureerde wijze een afweging te maken, afhankelijk van de context en doelstellingen van het project.
 
 \begin{table}[H]
     \centering
@@ -660,8 +665,7 @@ Voor een snelle vergelijking tussen Mendix en traditionele ontwikkeling is in Ta
 \end{table}
 
 \subsubsection{Interpretatie van de score}
-De totaalscore op basis van de beoordelingsmatrix biedt richting bij de keuze van ontwikkelmethode:
-
+De totaalscore op basis van de beoordelingsmatrix varieert tussen een minimum van 12 en een maximum van 60 punten, afhankelijk van de toegekende scores per dimensie. Deze totale bandbreedte is opgedeeld in drie gelijke segmenten van elk 16 punten. Op basis van het segment waarin de score valt, wordt een bijpassende technologievoorkeur voorgesteld:
 \begin{itemize}
     \item \textbf{12–27 punten: Mendix aanbevolen} \\
     Geschikt voor projecten die vragen om snelheid, visueel modelleren, standaardisatie en minder technische complexiteit.
@@ -718,7 +722,7 @@ Naast de scorematrix kunnen onderstaande vragen projectteams helpen om de keuze 
 
 
 \subsection{Richtlijnen voor hybride projecten}
-Bij veel projecten is een zuivere keuze tussen Mendix en traditionele ontwikkeling niet zwart-wit. In complexe omgevingen is een hybride benadering vaak het meest geschikt: low-code wordt ingezet waar snelheid en standaardisatie gewenst zijn, terwijl traditionele high-code wordt benut voor maatwerk en technische diepgang.
+Bij veel projecten is een zuivere keuze tussen Mendix en traditionele ontwikkeling niet zwart-wit. In complexe omgevingen is een hybride benadering vaak het meest geschikt: low-code wordt ingezet waar snelheid en standaardisatie gewenst zijn, terwijl traditionele high-code wordt benut voor maatwerk en technische diepgang \autocite{PerfectionGeeks2023}.
 
 Een succesvolle hybride opzet vereist een duidelijke architectuur en samenwerking tussen beide ontwikkelvormen. Belangrijke aandachtspunten hierbij zijn:
 
@@ -734,7 +738,7 @@ Een succesvolle hybride opzet vereist een duidelijke architectuur en samenwerkin
     \item \textbf{Teamvertrouwen en ervaring:} Bij twijfel of overlap, geef voorkeur aan de technologie waar het team het meeste vertrouwen of ervaring mee heeft—mits dit binnen de technische vereisten past. Stabiliteit en beheersbaarheid gaan boven dogmatische keuzes.
 \end{itemize}
 
-Deze hybride aanpak biedt organisaties het beste van beide werelden: de snelheid en toegankelijkheid van Mendix, gecombineerd met de kracht en controle van traditionele ontwikkeling. Voorwaarde is wel dat er duidelijke kaders en technische governance worden ingericht om deze samenwerking structureel in goede banen te leiden.
+Deze hybride aanpak biedt organisaties het beste van beide werelden: de snelheid en toegankelijkheid van Mendix, gecombineerd met de kracht en controle van traditionele ontwikkeling. Voorwaarde is wel dat er duidelijke kaders en technische governance worden ingericht om deze samenwerking structureel in goede banen te leiden \autocite{Balla2024}.
 
 
 

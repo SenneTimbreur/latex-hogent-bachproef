@@ -497,7 +497,7 @@
             \textbf{Promotor:}}{\textbf{Supervisor:}} \@supervisor\\
           \ifx\@cosupervisor\@empty\else
             \IfLanguageName{dutch}{%
-              \textbf{Co-promotor:}}{%
+              \textbf{Co-promotoren:}}{%
               \textbf{Co-Supervisor:}} \@cosupervisor\\
           \fi
           \ifx\@institution\@empty\else
