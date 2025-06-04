@@ -434,7 +434,6 @@ Om de aanpasbaarheid en herbruikbaarheid van componenten te evalueren, is bij be
 In JavaScript/React duurde het toevoegen van een vergelijkbare zoekfunctie ongeveer 15 minuten, waarbij logica handmatig moest worden geschreven, de zoekinput geïntegreerd diende te worden in de UI, en filtering op de dataset geïmplementeerd werd.
 
 \begin{listing}[H]
-    \begin{minted}{JavaScript}
 export default function TrainingsTable({ trainingen, onDelete }) {
  const [searchTerm, setSearchTerm] = useState("");
  // Filter trainingen op basis van zoekterm
@@ -469,7 +468,6 @@ export default function TrainingsTable({ trainingen, onDelete }) {
  </Box>
  );
 }   
-    \end{minted}
     \captionsetup{justification=centering}
     \caption{Trainingstabel met zoekfunctie op naam}
     \label{lst:pipeline-clone}
